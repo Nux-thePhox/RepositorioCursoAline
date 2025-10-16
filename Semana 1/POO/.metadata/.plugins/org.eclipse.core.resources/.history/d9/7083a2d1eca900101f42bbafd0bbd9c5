@@ -1,0 +1,18 @@
+package com.mx.herencia;
+
+public class Hijo extends Padre{
+	
+	private String colorOjos;
+	private String complexion;
+	
+	public Hijo() {
+		
+	}
+
+	public Hijo(String nombre, String apellido, int edad, double estatura, String nacionalidad, String tez) {
+		super(nombre, apellido, edad, estatura, nacionalidad, tez);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+}

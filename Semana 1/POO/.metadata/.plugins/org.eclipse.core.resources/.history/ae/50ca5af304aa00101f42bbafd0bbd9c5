@@ -1,0 +1,5 @@
+package com.mx.abstracta.practica.entidad;
+
+public class EmpleadoPorHora {
+
+}

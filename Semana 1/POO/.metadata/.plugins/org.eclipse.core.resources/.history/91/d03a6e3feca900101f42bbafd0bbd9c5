@@ -1,0 +1,11 @@
+package com.mx.herencia;
+
+public class Hijo extends Padre{
+	
+	private String colorOjos;
+	private String complexion;
+	
+	public Hijo() {
+		
+	}
+}

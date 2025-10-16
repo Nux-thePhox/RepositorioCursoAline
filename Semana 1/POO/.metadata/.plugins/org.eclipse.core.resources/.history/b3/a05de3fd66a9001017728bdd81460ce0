@@ -1,0 +1,110 @@
+package com.mx.opening;
+
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+public class PrincipalOpening2 {
+	private static MenuHelper menuPrincipal = new MenuHelper("SALIR");
+	
+	private static Scanner scanner = new Scanner(System.in);
+	
+	private static OpeningImpl openingImpl = new OpeningImpl();
+	
+	public static void main(String[] args) {
+		int opcionMenuP;
+		
+		iniciaMenuPrincipal();
+		inicializaListaOpenings();
+		
+		do {
+			menuPrincipal.muestraMenu("MENU OPENINGS");
+			try {
+				opcionMenuP = scanner.nextInt();
+				scanner.nextLine();
+			}catch(InputMismatchException e){
+				System.err.println(e+" Ingresa un tipo de dato entero!!");
+				scanner.nextLine();
+				opcionMenuP = -1;
+			}
+			//ejecuta bloque switch
+		}while(opcionMenuP != menuPrincipal.getIndiceUltimaOpcion());
+	}
+	
+	private static void inicializaListaOpenings() {
+		// TODO Auto-generated method stub
+		Opening openingBoticaria = new Opening("Ambivalent ", "Los diarios de la Boticaria", "Uru", 2, 4, 2);
+		Opening openingKimetsu = new Opening("Zankyosanka", "Kimetsu no Yaiba", "Aimer", 3, 3, 2);
+		Opening openingDanDaDan = new Opening("On The Way", "DanDaDan", "AiNA THE END", 2, 3, 38);
+		Opening openingShumatsuValkyre = new Opening("RUDE LOSE DANCE", "Shumatsu No Valkyre", "Minami", 2, 
+				4, 45);
+		
+		openingImpl.create(openingBoticaria);
+		openingImpl.create(openingKimetsu);
+		openingImpl.create(openingDanDaDan);
+		openingImpl.create(openingShumatsuValkyre);
+	}
+
+	private static void iniciaMenuPrincipal() {
+		// TODO Auto-generated method stub
+		menuPrincipal.agregaOpcion("CREAR");
+		menuPrincipal.agregaOpcion("ACTUALIZAR");
+		menuPrincipal.agregaOpcion("MOSTRAR");
+		menuPrincipal.agregaOpcion("ELIMINAR");
+		menuPrincipal.agregaOpcion("BUSCAR");
+		menuPrincipal.agregaOpcion("CONTAR");
+	}
+
+	private static void bloqueOpcionesPrincipal(int opcion) {
+		ScannerOpeningAttr leerAtributo;
+		Opening auxOpening;
+		switch(opcion) {
+		case 0:
+			System.out.println(opcion+".- CREAR");
+			auxOpening = new Opening();
+			leerAtributo = new ScannerOpeningAttr(auxOpening);
+			System.out.print("Ingresa el nombre del nuevo Opening: ");
+			leerAtributo.leeNombre();
+			System.out.print("Ingresa el autor del nuevo Opening: ");
+			leerAtributo.leeAutor();
+			System.out.print("Ingresa el anime del nuevo Opening: ");
+			leerAtributo.leeAnime();
+			leeAtributosEnteros(leerAtributo);
+			openingImpl.create(auxOpening);
+			System.out.println("Se ha guardado el opening");
+			break;
+		case 2:
+			System.out.println(opcion+".- MOSTRAR");
+			openingImpl.read();
+			break;
+		case 6:
+			System.out.println("Saliendo del programa");
+			break;
+		}
+	}
+	
+	private static void leeAtributosEnteros(ScannerOpeningAttr leerAtributo) {
+		boolean atributoAceptado=true;
+		do {
+			System.out.print("Ingresa el numero de Opening: ");
+			atributoAceptado = leerAtributo.leeNumeroOpening();
+			if(!atributoAceptado) {
+				System.out.println("Intenta de nuevo");
+			}
+		}while(!atributoAceptado);
+		do {
+			System.out.print("Ingresa los minutos de duracion: ");
+			atributoAceptado = leerAtributo.leeMinutosDuracion();
+			if(!atributoAceptado) {
+				System.out.println("Intenta de nuevo");
+			}
+		}while(!atributoAceptado);
+		do {
+			System.out.print("Ingresa los segundos de duracion: ");
+			atributoAceptado = leerAtributo.leeSegundosDuracion();
+			if(!atributoAceptado) {
+				System.out.println("Intenta de nuevo");
+			}
+		}while(!atributoAceptado);
+	}
+}

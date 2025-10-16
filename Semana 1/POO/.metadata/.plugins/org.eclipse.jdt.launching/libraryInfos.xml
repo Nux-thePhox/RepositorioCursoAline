@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="C:\Program Files\Java\jdk-17" version="17.0.12"/>
+    <libraryInfo home="C:\Program Files\Java\jdk-11.0.2" version="11.0.2"/>
+    <libraryInfo home="C:\Users\Uriel\Desktop\Capacitacion Enucom\JEE\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149" version="16.0.2"/>
+    <libraryInfo home="C:\Users\Uriel\Desktop\Capacitacion Enucom\JEE\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre" version="16.0.2"/>
+    <libraryInfo home="C:\Program Files\Java\jdk-21" version="21"/>
+    <libraryInfo home="C:\Program Files\Java\java-se-8u44-ri" version="1.8.0_44">
+        <bootpath>
+            <entry path="C:\Program Files\Java\java-se-8u44-ri\jre\lib\resources.jar"/>
+            <entry path="C:\Program Files\Java\java-se-8u44-ri\jre\lib\rt.jar"/>
+            <entry path="C:\Program Files\Java\java-se-8u44-ri\jre\lib\sunrsasign.jar"/>
+            <entry path="C:\Program Files\Java\java-se-8u44-ri\jre\lib\jsse.jar"/>
+            <entry path="C:\Program Files\Java\java-se-8u44-ri\jre\lib\jce.jar"/>
+            <entry path="C:\Program Files\Java\java-se-8u44-ri\jre\lib\charsets.jar"/>
+            <entry path="C:\Program Files\Java\java-se-8u44-ri\jre\lib\jfr.jar"/>
+            <entry path="C:\Program Files\Java\java-se-8u44-ri\jre\classes"/>
+        </bootpath>
+        <extensionDirs>
+            <entry path="C:\Program Files\Java\java-se-8u44-ri\jre\lib\ext"/>
+            <entry path="C:\Windows\Sun\Java\lib\ext"/>
+        </extensionDirs>
+        <endorsedDirs>
+            <entry path="C:\Program Files\Java\java-se-8u44-ri\jre\lib\endorsed"/>
+        </endorsedDirs>
+    </libraryInfo>
+</libraryInfos>

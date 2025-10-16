@@ -1,0 +1,23 @@
+package com.mx.opening;
+
+public class Opening {
+	
+	private String nombre;
+	private String anime;
+	private String autor;
+	private short minutosDuracion;
+	private short segundosDuracion;
+
+	public Opening() {
+	}
+
+	public Opening(String nombre, String anime, String autor, short minutosDuracion, short segundosDuracion) {
+		this.nombre = nombre;
+		this.anime = anime;
+		this.autor = autor;
+		this.minutosDuracion = minutosDuracion;
+		this.segundosDuracion = segundosDuracion;
+	}
+	
+	
+}

@@ -1,0 +1,49 @@
+package com.mx.ejerciciosiete.practica.entidades;
+
+import java.util.Random;
+import static com.mx.ejerciciosiete.practica.constantes.Constantes.LONGITUD_DNI;
+
+import com.mx.ejerciciosiete.practica.constantes.Constantes;
+public class Persona {
+	
+	private String nombre;
+	private short edad;
+	private String dni;
+	private char sexo;
+	private float peso;
+	private float altura;
+	
+	public Persona() {
+		// TODO Auto-generated constructor stub
+		this.dni = generaDNI();
+	}
+
+	public Persona(String nombre, short edad, char sexo) {
+		this.nombre = nombre;
+		this.edad = edad;
+		this.sexo = sexo;
+		this.dni = generaDNI();
+	}
+
+	public Persona(String nombre, short edad, String dni, char sexo, float peso, float altura) {
+		this.nombre = nombre;
+		this.edad = edad;
+		this.dni = dni;
+		this.sexo = sexo;
+		this.peso = peso;
+		this.altura = altura;
+	}
+	
+	public String generaDNI() {
+		Random random = new Random();
+		String dni = "";
+		int digito;
+		short i;
+		for(i=0; i<LONGITUD_DNI; i++) {
+			digito = random.nextInt(10);
+			dni = dni+digito;
+		}
+		return dni;
+	}
+	
+}

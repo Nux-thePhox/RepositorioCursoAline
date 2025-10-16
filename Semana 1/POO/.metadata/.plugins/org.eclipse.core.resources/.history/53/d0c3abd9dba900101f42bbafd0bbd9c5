@@ -1,0 +1,7 @@
+package com.mx.implementacion;
+
+import com.mx.principal.MetodosList;
+
+public class ImpListGenerica implements MetodosList{
+
+}

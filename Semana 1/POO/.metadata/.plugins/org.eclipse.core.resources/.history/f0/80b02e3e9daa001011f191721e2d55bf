@@ -1,0 +1,27 @@
+package com.mx.ejerciciosiete.entidades;
+
+public class Animal {
+	protected String nombre;
+	protected String color;
+	protected String tamanio;
+	protected String tipoReproduccion;
+	protected String sonido;
+	
+	public void hacerSonido(String sonido) {
+		System.out.println("El animal hace el sonido: ");
+	}
+	
+	public Animal() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Animal(String nombre, String color, String tamanio, String tipoReproduccion, String sonido) {
+		this.nombre = nombre;
+		this.color = color;
+		this.tamanio = tamanio;
+		this.tipoReproduccion = tipoReproduccion;
+		this.sonido = sonido;
+	}
+	
+	
+}

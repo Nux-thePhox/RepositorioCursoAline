@@ -1,0 +1,6 @@
+package com.mx.abstracta.practicados.entidades;
+
+public class Camion {
+	private int capacidadCarga; //toneladas
+	
+}

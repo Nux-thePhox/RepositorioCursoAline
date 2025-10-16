@@ -1,0 +1,13 @@
+package com.mx.herencia.practica;
+
+public class PrincipalCuenta {
+	public static void main(String[] args) {
+		CuentaAhorro miCuenta = new CuentaAhorro();
+		miCuenta.setTasaInteres(15);
+		miCuenta.setCantidad(8000.00);
+		miCuenta.setTitular("Frieren");
+		
+		miCuenta.mostrarInfo();
+		System.out.println("Interes generado: "+miCuenta.calcularInteres());
+	}
+}

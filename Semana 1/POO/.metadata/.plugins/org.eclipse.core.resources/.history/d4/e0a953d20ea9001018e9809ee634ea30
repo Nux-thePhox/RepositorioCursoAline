@@ -1,0 +1,5 @@
+package com.mx.Muebles;
+
+public interface IMetodosCrudMueble {
+	public void create(Mueble)
+}

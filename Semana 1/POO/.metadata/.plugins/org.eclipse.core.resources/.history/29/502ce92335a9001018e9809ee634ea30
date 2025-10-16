@@ -1,0 +1,23 @@
+package com.mx.opening;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class PrincipalOpening2 {
+	private static List<String> listaMenuPrincipal = List.of("CREAR", "ACTUALIZAR", "MOSTRAR",
+			"ELIMINAR", "BUSCAR", "CONTAR");
+	
+	private static Scanner scanner = new Scanner(System.in);
+	public static void main(String[] args) {
+		int opcionMenuP = -1;
+		MenuHelper menuPrincipal = new MenuHelper(listaMenuPrincipal);
+		menuPrincipal.modificaUltimaOpcion("SALIR");
+		do {
+			menuPrincipal.muestraMenu("MENU OPENINGS");
+			try {
+				
+			}
+		}while();
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.mx.ejerciciosiete.entidades;
+
+public class Gato extends Animal{
+	
+	@Override
+	public void hacerSonido() {
+		System.out.println("El gato hace miau");
+	}
+	
+}

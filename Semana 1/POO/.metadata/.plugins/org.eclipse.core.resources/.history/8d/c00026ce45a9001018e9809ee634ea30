@@ -1,0 +1,79 @@
+package com.mx.opening;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ScannerOpeningAttr {
+	
+	private Scanner lectura = new Scanner(System.in);
+	private Opening opening;
+	
+	private final String NO_ES_ENTERO = "Ingresa un valor entero";
+	
+	public ScannerOpeningAttr(Opening opening) {
+		this.opening = opening;
+	}
+
+	private void leeNombre() {
+		String nombre;
+		nombre = lectura.nextLine();
+		opening.setNombre(nombre);
+	}
+	
+	private void leeAnime() {
+		String anime;
+		anime = lectura.nextLine();
+		opening.setAnime(anime);
+	}
+	
+	private void leeAutor() {
+		String autor;
+		autor = lectura.nextLine();
+		opening.setAnime(autor);
+	}
+	
+	private boolean leeNumeroOpening() {
+		int numeroOpening;
+		try {
+			numeroOpening = lectura.nextInt();
+			lectura.nextLine();
+			opening.setNumeroOpening(numeroOpening);
+			return true;
+		}catch(InputMismatchException e){
+			System.err.println(e+" Ingresa un tipo de dato entero!!");
+			lectura.nextLine();
+			return false;
+		}
+	}
+	
+	private boolean leeMinutosDuracion() {
+		int minutosDuracion;
+		try {
+			minutosDuracion = lectura.nextInt();
+			lectura.nextLine();
+			opening.setMinutosDuracion(minutosDuracion);
+			return true;
+		}catch(InputMismatchException e){
+			System.err.println(e+" Ingresa un tipo de dato entero!!");
+			lectura.nextLine();
+			return false;
+		}
+	}
+	
+	private boolean leeSegundosDuracion() {
+		int segundosDuracion;
+		try {
+			segundosDuracion = lectura.nextInt();
+			lectura.nextLine();
+			opening.setSegundosDuracion(segundosDuracion);
+			return true;
+		}catch(InputMismatchException e){
+			System.err.println(e+" Ingresa un tipo de dato entero!!");
+			lectura.nextLine();
+			return false;
+		}
+	}
+	
+	private int ;
+	
+}

@@ -1,0 +1,8 @@
+package com.mx.opening;
+
+public class PrincipalOpening {
+	
+	public static void main(String[] args) {
+		
+	}
+}

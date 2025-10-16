@@ -1,0 +1,9 @@
+package com.mx.opening;
+
+import java.util.Scanner;
+
+public class ScannerOpeningAttr {
+	
+	private Scanner scanner = new Scanner(System.in); 
+
+}

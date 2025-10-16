@@ -1,0 +1,10 @@
+package com.mx.traductor;
+
+public class TraductorMain {
+	
+	private static TraductorPalabrasImpl traductorIngEsp = new TraductorPalabrasImpl();
+	
+	public static void main(String[] args) {
+		
+	}
+}

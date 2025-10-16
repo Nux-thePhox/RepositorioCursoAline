@@ -1,0 +1,42 @@
+package com.mx.ejercicio8;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mx.ejercicio8.lambda.Alumno;
+
+public class PrincipalEjercicio8 {
+	public static void main(String[] args) {
+		Alumno alumno = new Alumno(123456, "Jose", "Gonzales", "Jimenes", 21, "Gastronomia", "BUAP");
+		Alumno alumno1 = new Alumno(68741, "Luis", "Osorio", "Sanchez", 29, "Administracion", "UNAM");
+		Alumno alumno2 = new Alumno(78456, "Mariana", "Dominguez", "Hernandez", 23, "Lic.Enfermeria", "BUAP");
+		Alumno alumno3 = new Alumno(89567, "Rodrigo", "Morales", "Gonzales", 20, "Arquitectura", "UPAEP");
+		Alumno alumno4 = new Alumno(65234, "Carlos", "Jimenez", "Jimenez", 25, "Medicina", "BUAP");
+		
+		List<Alumno> lista = new ArrayList<>();
+		lista.add(alumno);
+		lista.add(alumno1);
+		lista.add(alumno2);
+		lista.add(alumno3);
+		lista.add(alumno4);
+		
+		//Funcion de lambda o flecha
+		/*
+		 * (parametros) -> { el cuerpo de la funcion } */
+		
+		lista.forEach(
+				(alumnoX) -> {System.out.println("El nombre del alumno es: "+alumnoX.getNombre());
+				});
+		
+		//Imprimir detalle de un alumno usando filtros
+		System.out.println("Detalle de alumno");
+		lista.stream().filter(
+				alux -> alux.getUniversidad().equalsIgnoreCase("buap")
+				).forEach(
+						alumnoX -> System.out.println("Nombre: "+alumnoX.getNombre()
+						+" estudia: "+alumnoX.getCarrera()+" en la universidad: "+alumnoX.getUniversidad())
+						);
+		
+		//expresiones lambda con interfaces funcionales
+	}
+}

@@ -1,0 +1,8 @@
+package com.mx.abstracta.practicados;
+
+import com.mx.abstracta.practicados.entidades.Auto;
+
+public class PrincipalPracticaDosAbstracta {
+	
+	Auto delorian = new Auto("delorian", "McFly", 1985, 80, "gasolina");
+}

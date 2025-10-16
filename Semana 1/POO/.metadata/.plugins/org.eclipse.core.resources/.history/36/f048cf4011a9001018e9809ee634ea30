@@ -1,0 +1,40 @@
+package com.mx.Muebles;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MueblesImpl implements IMetodosCrudMueble{
+	
+	private List<Mueble> listaMueble = new ArrayList<Mueble>();
+
+	@Override
+	public void create(Mueble mueble) {
+		// TODO Auto-generated method stub
+		listaMueble.add(mueble);
+	}
+
+	@Override
+	public void read() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		listaMueble.set(indice, mueble);
+	}
+
+	@Override
+	public void delete(int indice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Mueble buscar(int indice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

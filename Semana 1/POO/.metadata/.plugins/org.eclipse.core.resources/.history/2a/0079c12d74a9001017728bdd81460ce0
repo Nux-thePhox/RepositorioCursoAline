@@ -1,0 +1,234 @@
+package com.mx.opening;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class PrincipalOpening2 {
+	private static MenuHelper menuPrincipal = new MenuHelper("SALIR");
+	
+	private static MenuHelper menuEditar = new MenuHelper("GUARDAR CAMBIOS");
+	
+	private static Scanner scanner = new Scanner(System.in);
+	
+	private static OpeningImpl openingImpl = new OpeningImpl();
+	
+	public static void main(String[] args) {
+		int opcionMenuP;
+		
+		inicializaMenus();
+		inicializaListaOpenings();
+		
+		do {
+			menuPrincipal.muestraMenu("MENU OPENINGS");
+			try {
+				opcionMenuP = scanner.nextInt();
+				scanner.nextLine();
+				bloqueOpcionesPrincipal(opcionMenuP);
+			}catch(InputMismatchException e){
+				System.err.println(e+" Ingresa un tipo de dato entero!!");
+				scanner.nextLine();
+				opcionMenuP = -1;
+			}
+			//ejecuta bloque switch
+		}while(opcionMenuP != menuPrincipal.getIndiceUltimaOpcion());
+	}
+	
+	private static void inicializaListaOpenings() {
+		// TODO Auto-generated method stub
+		Opening openingBoticaria = new Opening("Ambivalent ", "Los diarios de la Boticaria", 
+				"Uru", 2, 4, 2);
+		Opening openingKimetsu = new Opening("Zankyosanka", "Kimetsu no Yaiba", "Aimer", 3, 3, 2);
+		Opening openingDanDaDan = new Opening("On The Way", "DanDaDan", "AiNA THE END", 2, 3, 38);
+		Opening openingShumatsuValkyre = new Opening("RUDE LOSE DANCE", "Shumatsu No Valkyre", 
+				"Minami", 2, 4, 45);
+		
+		openingImpl.create(openingBoticaria);
+		openingImpl.create(openingKimetsu);
+		openingImpl.create(openingDanDaDan);
+		openingImpl.create(openingShumatsuValkyre);
+	}
+
+	private static void inicializaMenus() {
+		// TODO Auto-generated method stub
+		menuPrincipal.agregaOpcion("CREAR");
+		menuPrincipal.agregaOpcion("ACTUALIZAR");
+		menuPrincipal.agregaOpcion("MOSTRAR");
+		menuPrincipal.agregaOpcion("ELIMINAR");
+		menuPrincipal.agregaOpcion("BUSCAR");
+		menuPrincipal.agregaOpcion("CONTAR");
+		
+		menuEditar.agregaOpcion("Editar nombre");
+		menuEditar.agregaOpcion("Editar anime");
+		menuEditar.agregaOpcion("Editar autor");
+		menuEditar.agregaOpcion("Editar numero de opening");
+		menuEditar.agregaOpcion("Editar minutos de duracion");
+		menuEditar.agregaOpcion("Editar segundos de duracion");
+	}
+
+	private static void bloqueOpcionesPrincipal(int opcion) {
+		ScannerOpeningAttr leerAtributo;
+		Opening auxOpening;
+		int indiceABuscar;
+		int opcionMenuEditar;
+		switch(opcion) {
+		case 0:
+			System.out.println(opcion+".- CREAR");
+			auxOpening = new Opening();
+			leerAtributo = new ScannerOpeningAttr(auxOpening);
+			System.out.print("Ingresa el nombre del nuevo Opening: ");
+			leerAtributo.leeNombre();
+			System.out.print("Ingresa el autor del nuevo Opening: ");
+			leerAtributo.leeAutor();
+			System.out.print("Ingresa el anime del nuevo Opening: ");
+			leerAtributo.leeAnime();
+			leeAtributosEnteros(leerAtributo);
+			openingImpl.create(auxOpening);
+			System.out.println("Se ha guardado el opening");
+			break;
+		case 1:
+			System.out.println(opcion+".- ACTUALIZAR");
+			indiceABuscar = leeIndiceABuscar();
+			auxOpening = openingImpl.buscar(indiceABuscar);
+			if(auxOpening == null) {
+				System.out.println("El indice esta fuera de rango, intenta con otro");
+			}else {
+				leerAtributo = new ScannerOpeningAttr(auxOpening);
+				do {
+					menuEditar.muestraMenu("ACTUALIZAR OPENINGS");
+					try {
+						opcionMenuEditar = scanner.nextInt();
+						scanner.nextLine();
+						bloqueMenuActualizar(opcionMenuEditar, leerAtributo);
+					}catch(InputMismatchException e){
+						System.err.println(e+" Ingresa un tipo de dato entero!!");
+						scanner.nextLine();
+						opcionMenuEditar = -1;
+					}
+				}while(opcionMenuEditar != menuPrincipal.getIndiceUltimaOpcion());
+				openingImpl.update(indiceABuscar, auxOpening);
+			}
+			break;
+		case 2:
+			System.out.println(opcion+".- MOSTRAR");
+			openingImpl.read();
+			break;
+		case 3:
+			System.out.println(opcion+".- ELIMINAR");
+			indiceABuscar = leeIndiceABuscar();
+			auxOpening = openingImpl.buscar(indiceABuscar);
+			if(auxOpening == null) {
+				System.out.println("El indice esta fuera de rango, intenta con otro");
+			}else {
+				openingImpl.delete(indiceABuscar);
+				System.out.println("El siguiente opening fue eliminado de la lista: "+auxOpening);
+			}
+			break;
+		case 4:
+			System.out.println(opcion+".- BUSCAR");
+			indiceABuscar = leeIndiceABuscar();
+			auxOpening = openingImpl.buscar(indiceABuscar);
+			System.out.println(auxOpening == null ? 
+					"El indice esta fuera de rango, intenta con otro" : "Opening encontrado: "+auxOpening);
+			break;
+		case 5:
+			System.out.println(opcion+".- CONTAR");
+			openingImpl.contarElementos();
+			break;
+		case 6:
+			System.out.println("Saliendo del programa");
+			break;
+		}
+	}
+	
+	private static int leeIndiceABuscar() {
+		int indiceABuscar;
+		do {
+			System.out.print("Lee el indice a buscar: ");
+			try {
+				indiceABuscar = scanner.nextInt();
+				scanner.nextLine();
+			}catch(InputMismatchException e){
+				System.err.println(e+" Ingresa un tipo de dato entero!!");
+				scanner.nextLine();
+				indiceABuscar = -1;
+			}
+		}while(indiceABuscar == -1);
+		return indiceABuscar;
+	}
+	
+	private static void leeAtributosEnteros(ScannerOpeningAttr leerAtributo) {
+		boolean atributoAceptado=true;
+		do {
+			System.out.print("Ingresa el numero de Opening: ");
+			atributoAceptado = leerAtributo.leeNumeroOpening();
+			if(!atributoAceptado) {
+				System.out.println("Intenta de nuevo");
+			}
+		}while(!atributoAceptado);
+		do {
+			System.out.print("Ingresa los minutos de duracion: ");
+			atributoAceptado = leerAtributo.leeMinutosDuracion();
+			if(!atributoAceptado) {
+				System.out.println("Intenta de nuevo");
+			}
+		}while(!atributoAceptado);
+		do {
+			System.out.print("Ingresa los segundos de duracion: ");
+			atributoAceptado = leerAtributo.leeSegundosDuracion();
+			if(!atributoAceptado) {
+				System.out.println("Intenta de nuevo");
+			}
+		}while(!atributoAceptado);
+	}
+	
+	private static void bloqueMenuActualizar(int opcion, ScannerOpeningAttr leerAtributo) {
+		boolean atributoAceptado;
+		switch(opcion) {
+		case 0:
+			System.out.println(opcion+".- Editar nombre");
+			System.out.print("Ingresa el nuevo nombre del nuevo Opening: ");
+			leerAtributo.leeNombre();
+			break; 
+		case 1:
+			System.out.println(opcion+".- Editar anime");
+			System.out.print("Ingresa el nuevo autor del nuevo Opening: ");
+			System.out.print("Ingresa el anime del nuevo Opening: ");
+			leerAtributo.leeAnime();
+			break;
+		case 2:
+			System.out.println(opcion+".- Editar autor");
+			leerAtributo.leeAutor();
+			break;
+		case 3:
+			System.out.println(opcion+".- Editar numero de opening");
+			do {
+				System.out.print("Ingresa el nuevo numero de Opening: ");
+				atributoAceptado = leerAtributo.leeNumeroOpening();
+				if(!atributoAceptado) {
+					System.out.println("Intenta de nuevo");
+				}
+			}while(!atributoAceptado);
+			break;
+		case 4:
+			System.out.println(opcion+".- Editar minutos de duracion");
+			do {
+				System.out.print("Ingresa los nuevos minutos de duracion: ");
+				atributoAceptado = leerAtributo.leeMinutosDuracion();
+				if(!atributoAceptado) {
+					System.out.println("Intenta de nuevo");
+				}
+			}while(!atributoAceptado);
+			break;
+		case 5:
+			System.out.println(opcion+".- Editar segundos de duracion");
+			do {
+				System.out.print("Ingresa los nuevos segundos de duracion: ");
+				atributoAceptado = leerAtributo.leeSegundosDuracion();
+				if(!atributoAceptado) {
+					System.out.println("Intenta de nuevo");
+				}
+			}while(!atributoAceptado);
+			break;
+		}
+	}
+}

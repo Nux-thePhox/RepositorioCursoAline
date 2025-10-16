@@ -1,0 +1,41 @@
+package com.mx.implementacion;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mx.principal.MetodosList;
+
+public class ImpListGenerica implements MetodosList{
+	protected List<Object> lista = new ArrayList<Object>();
+
+	@Override
+	public void guardar(Object object) {
+		// TODO Auto-generated method stub
+		lista.add(object);
+	}
+
+	@Override
+	public void editar(int indiceLista) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(int indiceLista) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object buscar(int indiceLista) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

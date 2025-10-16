@@ -1,0 +1,7 @@
+package com.mx.opening;
+
+public class Principal {
+	public static void main(String[] args) {
+		Opening openingBoticaria = new Opening("Ambivalent ", "Los diarios de la Boticaria", null, 0, 0)
+	}
+}

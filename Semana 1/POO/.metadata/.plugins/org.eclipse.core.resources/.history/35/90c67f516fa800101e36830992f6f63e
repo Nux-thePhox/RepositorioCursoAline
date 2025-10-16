@@ -1,0 +1,82 @@
+package com.mx.computadora;
+
+import java.util.Scanner;
+
+public class Principal2 {
+	
+	private static Scanner scanner = null;
+	
+	//Variables locales.
+	private static String marca, modelo, capacidad;
+	
+	//Las variables menus nos ayudaran a almacenar opciones
+	private static int menuPrincipal = 0;
+	private static int menuSecundario = 0;
+	//Simulara el indice de un objeto
+	private static int indice = 0;
+	
+	private static double precio;
+	private static int ram;
+	
+	public static void main(String[] args) {
+		
+		//inicio del menu interactivo
+		do {
+			imprimeMenuPrincipal();
+			scanner = new Scanner(System.in);
+			menuPrincipal = scanner.nextInt();
+		}while(menuPrincipal != 7);
+	}
+	
+	private static void imprimeMenuPrincipal() {
+		System.out.println("----- MENU -----\n"
+				+ "1.- AGREGAR\n"
+				+ "2.- MOSTRAR\n"
+				+ "3.- EDITAR\n"
+				+ "4.- BUSCAR\n"
+				+ "5.- ELIMINAR\n"
+				+ "6.- CONTAR\n"
+				+ "7.- SALIR\n"
+				+ "*** Elige una opcion dentro del menu ***");
+	}
+	
+	private static void bloqueSwitchMenuPrincipal(int menuPrincipal) {
+		scanner = new Scanner(System.in);
+		switch(menuPrincipal) {
+		case 1:
+			System.out.println("1.- Agregar una nueva Computadora");
+			System.out.print("Escribe la marca de la computadora: ");
+			marca = scanner.nextLine();
+			
+			System.out.print("Escribe el modelo de la computadora: ");
+			modelo = scanner.nextLine();
+			
+			System.out.print("Escribe el precio de la computadora: ");
+			precio = scanner.nextDouble();
+			scanner.nextLine();
+			
+			System.out.print("Escribe la ram de la computadora: ");
+			ram = scanner.nextInt(); 
+			scanner.nextLine();
+			
+			System.out.print("Escribe la capacidad de la computadora: ");
+			marca = scanner.nextLine();
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		default:
+			System.out.println("Opción invalida");
+			break;
+		}
+	}
+}

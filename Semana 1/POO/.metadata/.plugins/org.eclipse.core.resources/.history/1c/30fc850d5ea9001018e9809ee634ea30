@@ -1,0 +1,56 @@
+package com.mx.opening;
+
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+public class PrincipalOpening2 {
+	private static MenuHelper menuPrincipal = new MenuHelper("SALIR");
+	
+	private static Scanner scanner = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		int opcionMenuP;
+		
+		menuPrincipal.agregaOpcion("CREAR");
+		menuPrincipal.agregaOpcion("ACTUALIZAR");
+		menuPrincipal.agregaOpcion("MOSTRAR");
+		menuPrincipal.agregaOpcion("ELIMINAR");
+		menuPrincipal.agregaOpcion("BUSCAR");
+		menuPrincipal.agregaOpcion("CONTAR");
+		
+		do {
+			menuPrincipal.muestraMenu("MENU OPENINGS");
+			try {
+				opcionMenuP = scanner.nextInt();
+				scanner.nextLine();
+			}catch(InputMismatchException e){
+				System.err.println(e+" Ingresa un tipo de dato entero!!");
+				scanner.nextLine();
+				opcionMenuP = -1;
+			}
+			//ejecuta bloque switch
+		}while(opcionMenuP != menuPrincipal.getIndiceUltimaOpcion());
+	}
+	
+	private static void bloqueOpcionesPrincipal(int opcion) {
+		ScannerOpeningAttr leerAtributo;
+		Opening auxOpening;
+		switch(opcion) {
+		case 0:
+			System.out.println(opcion+".- CREAR");
+			auxOpening = new Opening();
+			leerAtributo = new ScannerOpeningAttr(auxOpening);
+			System.out.print("Ingresa el nombre del nuevo Opening: ");
+			leerAtributo.leeNombre();
+			System.out.print("Ingresa el autor del nuevo Opening: ");
+			leerAtributo.leeAutor();
+			System.out.print("Ingresa el anime del nuevo Opening: ");
+			leerAtributo.leeAnime();
+			break;
+		case 6:
+			System.out.println("Saliendo del programa");
+			break;
+		}
+	}
+}

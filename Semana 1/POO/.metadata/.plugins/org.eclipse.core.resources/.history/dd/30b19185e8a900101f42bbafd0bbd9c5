@@ -1,0 +1,60 @@
+package com.mx.principal;
+
+import com.mx.entidades.Celular;
+import com.mx.entidades.Computadora;
+import com.mx.entidades.Fruta;
+import com.mx.implementacion.ImpFruta;
+import com.mx.implementacion.ImpFrutaList;
+import com.mx.implementacion.ImpListGenerica;
+
+public class PrincipalEj4 {
+	public static Fruta fruta = new Fruta("mango", "amarillo", 20.2, 1.5);
+	public static Fruta fruta2 = new Fruta("Sandia", "verde", 12.5, 1);
+	
+	public static Computadora computadora = new Computadora("Dell", "inspiron", 12000.50, 8, "256GB");
+	public static Computadora warMachine = new Computadora("Azuz", "Lentium", 24000.00, 16, "1TB");
+	
+	public static Celular celular = new Celular(456, "Xiao", "XLR", "Negro", 6799.99, 4, "CMD");
+	public static Celular celular2 = new Celular(456, "Xiao", "XLR", "Negro", 6799.99, 4, "CMD");
+	
+	public static void main(String[] args) {
+		ImpFrutaList impF = new ImpFrutaList();
+		ImpListGenerica impComputadora = new ImpListGenerica();
+		ImpListGenerica impCelular = new ImpListGenerica();
+		
+		//Guardar
+		impF.guardar(fruta);
+		impF.guardar(fruta2);
+		
+		impComputadora.gu
+		
+		impF.mostrar();
+		
+		Fruta frutaEncontrada;
+		frutaEncontrada = (Fruta) impF.buscar(1);
+		System.out.println(frutaEncontrada);
+		
+		impF.eliminar(1);
+		impF.mostrar();
+		
+		impF.contar();
+		
+	}
+	
+	private static void ejemploHash() {
+		ImpFruta impF = new ImpFruta();
+		impF.guardar(fruta.getNombre(), fruta);
+		impF.guardar(fruta2.getNombre(), fruta2);
+		
+		impF.mostrar();
+		
+		Fruta frutaEncontrada;
+		frutaEncontrada = (Fruta) impF.buscar(fruta.getNombre());
+		System.out.println(frutaEncontrada);
+		
+		impF.eliminar(frutaEncontrada.getNombre());
+		impF.mostrar();
+		
+		impF.contar();
+	}
+}

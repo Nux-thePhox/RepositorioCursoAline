@@ -1,0 +1,9 @@
+package com.mx.traductor;
+
+import java.util.HashMap;
+
+public interface TraductorPalabraMetodos {
+	public void agregar(String nuevaPalabra);
+	public String buscarPorPalabraClave(String palabraClave);
+	public HashMap<String, String> obtenTodosLosRegistros();
+}

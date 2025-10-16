@@ -1,0 +1,17 @@
+package com.mx.principal;
+
+import com.mx.entidades.Fruta;
+import com.mx.implementacion.ImpFruta;
+
+public class PrincipalEj4 {
+	public static void main(String[] args) {
+		Fruta fruta = new Fruta("mango", "amarillo", 20.2, 1.5);
+		Fruta fruta2 = new Fruta("Sandia", "verde", 12.5, 1);
+		
+		ImpFruta impF = new ImpFruta();
+		impF.guardar(fruta.getNombre(), fruta);
+		impF.guardar(fruta2.getNombre(), fruta2);
+		
+		impF.mostrar();
+	}
+}

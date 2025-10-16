@@ -1,0 +1,15 @@
+package com.mx.ejercicio8.practicalambda;
+
+/*
+ * Filtrar los alumnos que tengan una edad mayor a 22 años
+ * Filtrar los alumos cuyo nombre termine en S
+ * Ordenar los alumnos por su nombre(orden ascendente)
+ * Contar los alumnos de la carrera de Lic.Medicina
+ * Mapear los nombres de los alumnos a mayusculas
+ * Calcular el promedio de las edades de todos los alumnos 
+ * 
+ * */
+
+public class PrincipalPracticaLambda {
+
+}

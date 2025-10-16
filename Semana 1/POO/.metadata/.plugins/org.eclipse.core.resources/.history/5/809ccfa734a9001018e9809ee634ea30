@@ -1,0 +1,13 @@
+package com.mx.opening;
+
+import java.util.List;
+
+public class PrincipalOpening2 {
+	private static List<String> listaMenuPrincipal = List.of("CREAR", "ACTUALIZAR", "MOSTRAR",
+			"ELIMINAR", "BUSCAR", "CONTAR");
+	
+	public static void main(String[] args) {
+		MenuHelper menuPrincipal = new MenuHelper(listaMenuPrincipal);
+	}
+
+}

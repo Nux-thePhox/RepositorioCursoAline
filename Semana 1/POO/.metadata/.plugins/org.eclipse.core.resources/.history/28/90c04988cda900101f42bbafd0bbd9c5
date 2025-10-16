@@ -1,0 +1,26 @@
+package com.mx.traductor;
+
+import java.util.Scanner;
+
+public class TraductorMain {
+	
+	private static TraductorPalabrasImpl traductorIngEsp = new TraductorPalabrasImpl();
+	
+	private static Scanner leer = new Scanner(System.in);
+	
+	private static String palabraIng, palabraEsp;
+	
+	public static void main(String[] args) {
+		
+		leerPalabrasIngEsp();
+		traductorIngEsp.agregar(palabraIng, palabraEsp);
+		
+	}
+	
+	private static void leerPalabrasIngEsp() {
+		System.out.print("Ingresa la palabra en ingles: ");
+		palabraIng = leer.nextLine();
+		System.out.print("Ingresa su traduccion al español: ");
+		palabraEsp = leer.nextLine();
+	}
+}

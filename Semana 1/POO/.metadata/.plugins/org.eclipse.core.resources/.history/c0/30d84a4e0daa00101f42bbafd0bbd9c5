@@ -1,0 +1,9 @@
+package com.mx.abstracta.practicados.entidades;
+
+import com.mx.abstracta.practicados.entidadabs.Vehiculo;
+
+public class Motocicleta extends Vehiculo{
+	
+	private int cilindraje;
+	
+}

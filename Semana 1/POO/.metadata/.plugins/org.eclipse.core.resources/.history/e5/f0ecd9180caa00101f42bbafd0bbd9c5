@@ -1,0 +1,8 @@
+package com.mx.abstracta.practicados.entidades;
+
+public class Auto {
+	
+	private String tipoCombustible;
+	
+	
+}

@@ -1,0 +1,45 @@
+package com.mx.opening;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MenuHelper {
+	private List<String> opcionesMenu = new ArrayList<String>();
+	private String ultimaOpcion = "Salir";
+	private int indiceUltimaOpcion;
+	
+	public MenuHelper() {
+		opcionesMenu.add(this.ultimaOpcion);
+		indiceUltimaOpcion = getIndiceUltimaOpcion();	
+	}
+	
+	public MenuHelper(String ultimaOpcion) {
+		this.ultimaOpcion = ultimaOpcion;
+		opcionesMenu.add(this.ultimaOpcion);
+		indiceUltimaOpcion = getIndiceUltimaOpcion();
+	}
+	
+	public void agregaOpcion(String opcion) {
+		opcionesMenu.set(indiceUltimaOpcion, opcion);
+		opcionesMenu.add(this.ultimaOpcion);
+		indiceUltimaOpcion = getIndiceUltimaOpcion();
+	}
+	
+	private int getIndiceUltimaOpcion() {
+		return opcionesMenu.size() - 1;
+	}
+	
+	private void modificaUltimaOpcion(String nuevoMensaje) {
+		this.ultimaOpcion = nuevoMensaje;
+		opcionesMenu.set(indiceUltimaOpcion, nuevoMensaje);
+	}
+	
+	private static void muestraMenu(String nombreMenu, List<String> listaMenu) {
+		System.out.println("----- "+nombreMenu+" -----");
+		int i=0;
+		for(String elemento: listaMenu) {
+			System.out.println(" "+i+".- "+elemento);
+			i++;
+		}
+	}
+}

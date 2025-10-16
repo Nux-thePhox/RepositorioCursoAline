@@ -1,0 +1,8 @@
+package com.mx.Muebles;
+
+public class PrincipalMueble {
+	
+	public static void main(String[] args) {
+		Mueble mueble = new Mueble("gris", 8000.78, 5, "tela", "sala");
+	}
+}

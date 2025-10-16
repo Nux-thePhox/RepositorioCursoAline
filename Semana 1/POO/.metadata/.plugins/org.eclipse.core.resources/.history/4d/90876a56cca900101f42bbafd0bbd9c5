@@ -1,0 +1,8 @@
+package com.mx.traductor;
+
+public class TraductorMain {
+	
+	public static void main(String[] args) {
+		
+	}
+}

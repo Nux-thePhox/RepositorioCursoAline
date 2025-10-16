@@ -1,0 +1,16 @@
+package com.mx.abstracta;
+
+public class Abogado extends Profesionista{
+	
+	private String tipo;
+	private int honorario;
+
+	@Override
+	public void trabajar() {
+		// TODO Auto-generated method stub
+		System.out.println("Muy bonito discurso señor, pero yo me pregunto, que es un contrato?\n"
+				+ "El diccionario lo define como un acuerdo legal que no se puede romper… "
+				+ "¡QUE NO SE PUEDE ROMPER!");
+	}
+
+}

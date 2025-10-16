@@ -1,0 +1,36 @@
+package com.mx.opening;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ScannerOpeningAttr {
+	
+	private Scanner scanner = new Scanner(System.in);
+	private Opening opening;
+	
+	private final String NO_ES_ENTERO = "Ingresa un valor entero";
+	
+	public ScannerOpeningAttr(Opening opening) {
+		this.opening = opening;
+	}
+
+	private boolean leeNombre() {
+		String nombre;
+		try {
+			nombre = scanner.nextInt();
+			scanner.nextLine();
+		}catch(InputMismatchException e){
+			System.err.println(e+" :"+NO_ES_ENTERO);
+			datos.nextLine();
+			return false;
+		}
+		
+		return true;
+	}
+	private String anime;
+	private String autor;
+	private int numeroOpening;
+	private int minutosDuracion;
+	private int segundosDuracion;
+	
+}

@@ -1,0 +1,79 @@
+package com.mx.opening;
+
+public class Opening {
+	
+	private String nombre;
+	private String anime;
+	private String autor;
+	private short numero;
+	private short minutosDuracion;
+	private short segundosDuracion;
+
+	public Opening() {
+	}
+
+	public Opening(String nombre, String anime, String autor, short numero, short minutosDuracion,
+			short segundosDuracion) {
+		this.nombre = nombre;
+		this.anime = anime;
+		this.autor = autor;
+		this.numero = numero;
+		this.minutosDuracion = minutosDuracion;
+		this.segundosDuracion = segundosDuracion;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getAnime() {
+		return anime;
+	}
+
+	public void setAnime(String anime) {
+		this.anime = anime;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+
+	public short getNumero() {
+		return numero;
+	}
+
+	public void setNumero(short numero) {
+		this.numero = numero;
+	}
+
+	public short getMinutosDuracion() {
+		return minutosDuracion;
+	}
+
+	public void setMinutosDuracion(short minutosDuracion) {
+		this.minutosDuracion = minutosDuracion;
+	}
+
+	public short getSegundosDuracion() {
+		return segundosDuracion;
+	}
+
+	public void setSegundosDuracion(short segundosDuracion) {
+		this.segundosDuracion = segundosDuracion;
+	}
+
+	@Override
+	public String toString() {
+		return "Opening [nombre=" + nombre + ", anime=" + anime + ", autor=" + autor + ", numero=" + numero
+				+ ", minutosDuracion=" + minutosDuracion + ", segundosDuracion=" + segundosDuracion + "]\n";
+	}
+	
+}

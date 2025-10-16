@@ -1,0 +1,8 @@
+package com.mx.implementacion;
+
+public class ImpFrutaList extends ImpListGenerica{
+	
+	public void contar() {
+		System.out.println("Existen "+lista.size()+" frutas");
+	}
+}

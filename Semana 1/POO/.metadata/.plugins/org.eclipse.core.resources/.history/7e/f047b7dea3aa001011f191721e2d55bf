@@ -1,0 +1,37 @@
+package com.mx.ejerciciosiete.practica.entidades;
+
+public class Persona {
+
+	private String nombre;
+	private short edad;
+	private String dni;
+	private char sexo;
+	private float peso;
+	private float altura;
+	
+	public Persona() {
+		// TODO Auto-generated constructor stub
+		this.dni = generaDNI();
+	}
+
+	public Persona(String nombre, short edad, char sexo) {
+		this.nombre = nombre;
+		this.edad = edad;
+		this.sexo = sexo;
+		this.dni = dni;
+	}
+
+	public Persona(String nombre, short edad, String dni, char sexo, float peso, float altura) {
+		this.nombre = nombre;
+		this.edad = edad;
+		this.dni = dni;
+		this.sexo = sexo;
+		this.peso = peso;
+		this.altura = altura;
+	}
+	
+	public String generaDNI() {
+		return "";
+	}
+	
+}

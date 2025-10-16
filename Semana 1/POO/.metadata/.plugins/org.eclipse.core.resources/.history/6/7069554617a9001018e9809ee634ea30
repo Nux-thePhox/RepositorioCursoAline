@@ -1,0 +1,36 @@
+package com.mx.opening;
+
+public class PrincipalOpening {
+	
+	public static void main(String[] args) {
+		Opening openingBoticaria = new Opening("Ambivalent ", "Los diarios de la Boticaria", "Uru", 2, 4, 2);
+		Opening openingKimetsu = new Opening("Zankyosanka", "Kimetsu no Yaiba", "Aimer", 3, 3, 2);
+		Opening openingDanDaDan = new Opening("On The Way", "DanDaDan", "AiNA THE END", 2, 3, 38);
+		Opening openingShumatsuValkyre = new Opening("RUDE LOSE DANCE", "Shumatsu No Valkyre", "Minami", 2, 
+				4, 45);
+		
+		OpeningImpl openingImp = new OpeningImpl();
+		
+		//create
+		openingImp.create(openingBoticaria);
+		openingImp.create(openingKimetsu);
+		openingImp.create(openingDanDaDan);
+		openingImp.create(openingShumatsuValkyre);
+		
+		//read
+		openingImp.read();
+		
+		//update
+		Opening aux;
+		aux = openingImp.buscar(0);
+		aux.setAnime("Kusuriya no Hitorigoto");
+		System.out.println(openingImp.buscar(2));
+		
+		//eliminar
+		openingImp.delete(2);
+		openingImp.read();
+		
+		//contar
+		openingImp.contarElementos();
+	}
+}

@@ -1,0 +1,158 @@
+package com.mx.computadora;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Principal2 {
+	
+	private static Scanner scanner = null;
+	
+	//Variables locales.
+	private static String marca, modelo, capacidad;
+	
+	//Las variables menus nos ayudaran a almacenar opciones
+	private static int menuPrincipal = 0;
+	private static int menuSecundario = 0;
+	//Simulara el indice de un objeto
+	private static int indice = 0;
+	
+	private static double precio;
+	private static int ram;
+	
+	private static List<Computadora> listaComputadora = new ArrayList<Computadora>();
+	
+	public static void main(String[] args) {
+		
+		//inicio del menu interactivo
+		do {
+			imprimeMenuPrincipal();
+			scanner = new Scanner(System.in);
+			menuPrincipal = scanner.nextInt();
+			bloqueSwitchMenuPrincipal(menuPrincipal);
+		}while(menuPrincipal != 7);
+		System.out.println("Adios!");
+	}
+	
+	private static void imprimeMenuPrincipal() {
+		System.out.println("----- MENU -----\n"
+				+ "1.- AGREGAR\n"
+				+ "2.- MOSTRAR\n"
+				+ "3.- EDITAR\n"
+				+ "4.- BUSCAR\n"
+				+ "5.- ELIMINAR\n"
+				+ "6.- CONTAR\n"
+				+ "7.- SALIR");
+		System.out.print("*** Elige una opcion dentro del menu: ");
+	}
+	
+	private static void imprimeMenuEditar() {
+		System.out.println("----- MENU EDITAR -----\n"
+				+ "1.- Editar marca\n"
+				+ "2.- Editar modelo\n"
+				+ "3.- Editar precio\n"
+				+ "4.- Editar ram\n"
+				+ "5.- Editar capacidad\n"
+				+ "6.- SALIR");
+		System.out.print("*** Elige el elemento a editar: ");
+	}
+	
+	private static void bloqueSwitchMenuPrincipal(int menu) {
+		//scanner = new Scanner(System.in);
+		switch(menu) {
+		case 1:
+			System.out.println("1.- Agregando una nueva Computadora");
+			System.out.print(" Escribe la marca de la computadora: ");
+			scanner = new Scanner(System.in);
+			marca = scanner.nextLine();
+			
+			System.out.print(" Escribe el modelo de la computadora: ");
+			scanner = new Scanner(System.in);
+			modelo = scanner.nextLine();
+			
+			System.out.print(" Escribe el precio de la computadora: ");
+			scanner = new Scanner(System.in);
+			precio = scanner.nextDouble();
+			scanner.nextLine();
+			
+			System.out.print(" Escribe la ram de la computadora: ");
+			scanner = new Scanner(System.in);
+			ram = scanner.nextInt(); 
+			scanner.nextLine();
+			
+			System.out.print(" Escribe la capacidad de la computadora: ");
+			scanner = new Scanner(System.in);
+			capacidad = scanner.nextLine();
+			
+			Computadora computadoraNueva = new Computadora(marca, modelo, precio, ram, capacidad);
+			System.out.println(" Computadora creada: "+computadoraNueva);
+			listaComputadora.add(computadoraNueva);
+			break;
+		case 2:
+			System.out.println("2.- Mostrando lista de Computadoras");
+			System.out.println(listaComputadora);
+			break;
+		case 3:
+			System.out.println("3.- Editando una Computadora");
+			System.out.print("Ingresa el indice de la computadora a editar: ");
+			scanner = new Scanner(System.in);
+			indice = scanner.nextInt();
+			Computadora computadoraBuscada = listaComputadora.get(indice);
+			do {
+				
+				imprimeMenuEditar();
+				scanner = new Scanner(System.in);
+				menuSecundario = scanner.nextInt();
+				scanner.nextLine();
+				bloqueSwitchMenuEditar(menuSecundario);
+			}while(menuSecundario != 6);
+			
+			
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		default:
+			System.out.println("Opción invalida");
+			break;
+		}
+	}
+	
+	private static void bloqueSwitchMenuEditar(int menuEditar) {
+		
+		private String marca;
+		private String modelo;
+		private double precio;
+		private int ram;
+		private String capacidad;
+		switch(menuEditar) {
+		case 1:
+			break;
+		case 2:
+			break;
+		case 5:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		default:
+			System.out.println("Opción invalida");
+			break;
+		}
+	}
+	
+	private static void leeMarca() {
+		System.out.print(" Escribe la marca de la computadora: ");
+		scanner = new Scanner(System.in);
+		marca = scanner.nextLine();
+	}
+
+}

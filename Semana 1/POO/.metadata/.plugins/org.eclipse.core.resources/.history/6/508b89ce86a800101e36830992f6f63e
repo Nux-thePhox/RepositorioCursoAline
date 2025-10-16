@@ -1,0 +1,159 @@
+package com.mx.opening;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import com.mx.opening.Opening;
+
+public class Principal2 {
+	
+	private static Scanner scanner = new Scanner(System.in);
+	
+	private static final int ELEMENTO_NOMBRE = 1;
+	private static final int ELEMENTO_ANIME = 2;
+	private static final int ELEMENTO_AUTOR = 3;
+	private static final int ELEMENTO_NUMERO_OPENING = 4;
+	private static final int ELEMENTO_MINUTOS_DURACION = 5;
+	private static final int ELEMENTO_SEGUNDOS_DURACION = 6;
+
+	
+	private static String nombre;
+	private static String anime;
+	private static String autor;
+	private static int numeroOpening;
+	private static int minutosDuracion;
+	private static int segundosDuracion;
+	
+	private static int menuPrincipal;
+	
+	private static List<Opening> listaOpenings = new ArrayList<Opening>();
+	private static List<String> listaMenuPrincipal = new ArrayList<String>();
+	
+	public static void main(String[] args) {
+		Opening openingBoticaria = new Opening("Ambivalent ", "Los diarios de la Boticaria", "Uru", 2, 4, 2);
+		Opening openingKimetsu = new Opening("Zankyosanka", "Kimetsu no Yaiba", "Aimer", 3, 3, 2);
+		Opening openingDanDaDan = new Opening("On The Way", "DanDaDan", "AiNA THE END", 2, 3, 38);
+		Opening openingShumatsuValkyre = new Opening("RUDE LOSE DANCE", "Shumatsu No Valkyre", "Minami", 2, 
+				4, 45);
+		
+		
+		listaOpenings.add(openingBoticaria);
+		listaOpenings.add(openingKimetsu);
+		listaOpenings.add(openingDanDaDan);
+		listaOpenings.add(openingShumatsuValkyre);
+		
+		listaMenuPrincipal.add("AGREGAR OPENING");
+		listaMenuPrincipal.add("MOSTRAR LISTA");
+		listaMenuPrincipal.add("EDITAR OPENING");
+		listaMenuPrincipal.add("BUSCAR OPENING");
+		listaMenuPrincipal.add("ELIMINAR OPENING DE LA LISTA");
+		listaMenuPrincipal.add("CONTAR OPENINGS EN LA LISTA");
+		listaMenuPrincipal.add("VACIAR LISTA");
+		listaMenuPrincipal.add("SALIR");
+		
+		do {
+			muestraMenu("MENU DE OPENINGS", listaMenuPrincipal);
+			System.out.print("*** Elige una opcion dentro del menu: ");
+			menuPrincipal = scanner.nextInt();
+			bloqueSwitchMenuPrincipal(menuPrincipal);
+		}while(menuPrincipal != (listaMenuPrincipal.size() - 1));
+		
+	}
+	
+	private static void muestraMenu(String nombreMenu, List<String> listaMenu) {
+		System.out.println("----- "+nombreMenu+" -----");
+		int i=0;
+		for(String elemento: listaMenu) {
+			System.out.println(" "+i+".- "+elemento);
+			i++;
+		}
+	}
+	
+	private static void bloqueSwitchMenuPrincipal(int opcion) {
+		switch(opcion) {
+		case 1:
+//			System.out.println(menu+".- Agregando una nueva Computadora");
+//			leeMarca();
+//			leeModelo();
+//			leePrecio();
+//			leeRam();
+//			leeCapacidad();
+//			Computadora computadoraNueva = new Computadora(marca, modelo, precio, ram, capacidad);
+//			System.out.println(" Computadora creada: "+computadoraNueva);
+//			listaComputadora.add(computadoraNueva);
+			break;
+		case 2:
+//			System.out.println(menu+".- Mostrando lista de Computadoras");
+//			System.out.println(listaComputadora);
+			break;
+		case 3:
+//			System.out.println(menu+".- Editando una Computadora");
+//			System.out.print("Ingresa el indice de la computadora a editar: ");
+//			scanner = new Scanner(System.in);
+//			indice = scanner.nextInt();
+//			Computadora computadoraBuscada = listaComputadora.get(indice);
+//			do {
+//				imprimeMenuEditar();
+//				scanner = new Scanner(System.in);
+//				menuSecundario = scanner.nextInt();
+//				scanner.nextLine();
+//				bloqueSwitchMenuEditar(menuSecundario, computadoraBuscada);
+//			}while(menuSecundario != 6);
+			break;
+		case 4:
+//			System.out.println(menu+".- Buscando una Computadora");
+//			System.out.print("Ingresa el indice de la computadora a buscar: ");
+//			scanner = new Scanner(System.in);
+//			indice = scanner.nextInt();
+//			System.out.println(" Se encontro el elemento: "+listaComputadora.get(indice));
+			break;
+		case 5:
+//			System.out.println(menu+".- Eliminando una Computadora");
+//			System.out.print("Ingresa el indice de la computadora a eliminar: ");
+//			scanner = new Scanner(System.in);
+//			indice = scanner.nextInt();
+//			listaComputadora.remove(indice);
+//			System.out.println("Se ha eliminado el elemento en la lista!");
+			break;
+		case 6:
+//			System.out.println(menu+".- Contando los elementos de la lista");
+//			System.out.println("Existen "+listaComputadora.size()+" elementos de la lista");
+			break;
+		case 7:
+			System.out.println("Saliendo del programa...");
+			break;
+		default:
+			System.out.println("Opción invalida");
+			break;
+		}
+	}
+	
+	private void leeElementoOpening(String mensajeEntrada, int elemento) {
+		String cadena;
+		do {
+			System.out.print(mensajeEntrada+": ");
+			if(elemento == ELEMENTO_NOMBRE || elemento == ELEMENTO_ANIME || elemento == ELEMENTO_AUTOR) {
+				
+			}
+		}while(true);
+		
+	}
+	
+	private static void bloqueSwitchLecturaAtributos(int opcion) {
+		switch(opcion) {
+		case ELEMENTO_NOMBRE:
+			break;
+		case ELEMENTO_ANIME:
+			break;
+		case ELEMENTO_AUTOR:
+			break;
+		case ELEMENTO_NUMERO_OPENING:
+			break;
+		case ELEMENTO_MINUTOS_DURACION:
+			break;
+		case ELEMENTO_SEGUNDOS_DURACION:
+			break;
+		}
+	}
+}

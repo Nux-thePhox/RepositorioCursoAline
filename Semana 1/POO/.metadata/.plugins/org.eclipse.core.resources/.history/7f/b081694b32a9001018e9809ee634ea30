@@ -1,0 +1,24 @@
+package com.mx.opening;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MenuHelper {
+	private List<String> opcionesMenu = new ArrayList<String>();
+	private String ultimaOpcion = "Salir";
+	private int indiceUltimaOpcion;
+	
+	public MenuHelper() {
+		opcionesMenu.add(ultimaOpcion);
+		
+	}
+	
+	public MenuHelper(String ultimaOpcion) {
+		this.ultimaOpcion = 
+	}
+	
+	private int getIndiceUltimaOpcion() {
+		return opcionesMenu.size() - 1;
+	}
+
+}

@@ -1,0 +1,7 @@
+package com.mx.ejerciciosiete.practica.entidades.constantes;
+
+public class Constantes {
+	
+	public final short LONGITUD_DNI = 8;
+
+}

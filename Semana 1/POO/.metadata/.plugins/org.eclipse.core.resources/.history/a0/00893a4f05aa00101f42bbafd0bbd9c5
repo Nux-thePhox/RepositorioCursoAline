@@ -1,0 +1,7 @@
+package com.mx.abstracta.practica.entidad;
+
+import com.mx.abstracta.practica.entidadabstracta.Empleado;
+
+public class EmpleadoPorHora extends Empleado{
+	
+}

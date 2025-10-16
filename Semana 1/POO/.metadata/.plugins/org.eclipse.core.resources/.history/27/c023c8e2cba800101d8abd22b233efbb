@@ -1,0 +1,277 @@
+package com.mx.opening;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+public class Principal2 {
+	
+	private static Scanner scanner = new Scanner(System.in);
+	
+	private static final int ELEMENTO_NOMBRE = 1;
+	private static final int ELEMENTO_ANIME = 2;
+	private static final int ELEMENTO_AUTOR = 3;
+	private static final int ELEMENTO_NUMERO_OPENING = 4;
+	private static final int ELEMENTO_MINUTOS_DURACION = 5;
+	private static final int ELEMENTO_SEGUNDOS_DURACION = 6;
+	
+	private static String nombre;
+	private static String anime;
+	private static String autor;
+	private static int numeroOpening;
+	private static int minutosDuracion;
+	private static int segundosDuracion;
+	
+	private static int menuPrincipal;
+	private static int opcionMenuEditar;
+	
+	private static List<Opening> listaOpenings = new ArrayList<Opening>();
+	private static List<String> listaMenuPrincipal = new ArrayList<String>();
+	private static List<String> listaMenuEditar = List.of("Editar nombre", "Editar anime", 
+			"Editar Autor", "Editar numero de opening", "Editar duracion de minutos", 
+			"Editar duracion de segundos", "Volver al menu principal");
+	
+	public static void main(String[] args) {
+		Opening openingBoticaria = new Opening("Ambivalent", "Los diarios de la Boticaria", "Uru", 2, 4, 2);
+		Opening openingKimetsu = new Opening("Zankyosanka", "Kimetsu no Yaiba", "Aimer", 3, 3, 2);
+		Opening openingDanDaDan = new Opening("On The Way", "DanDaDan", "AiNA THE END", 2, 3, 38);
+		Opening openingShumatsuValkyre = new Opening("RUDE LOSE DANCE", "Shumatsu No Valkyre", "Minami", 2, 
+				4, 45);
+		
+		listaOpenings.add(openingBoticaria);
+		listaOpenings.add(openingKimetsu);
+		listaOpenings.add(openingDanDaDan);
+		listaOpenings.add(openingShumatsuValkyre);
+		
+		listaMenuPrincipal.add("AGREGAR OPENING");
+		listaMenuPrincipal.add("MOSTRAR LISTA");
+		listaMenuPrincipal.add("EDITAR OPENING");
+		listaMenuPrincipal.add("BUSCAR OPENING");
+		listaMenuPrincipal.add("ELIMINAR OPENING DE LA LISTA");
+		listaMenuPrincipal.add("CONTAR OPENINGS EN LA LISTA");
+		listaMenuPrincipal.add("VACIAR LISTA");
+		listaMenuPrincipal.add("SALIR");
+		boolean datoInvalido;
+		do {
+			muestraMenu("MENU DE OPENINGS", listaMenuPrincipal);
+			System.out.print("*** Elige una opcion dentro del menu: ");
+			try {
+				menuPrincipal = scanner.nextInt();
+				scanner.nextLine();
+				bloqueSwitchMenuPrincipal(menuPrincipal);
+				datoInvalido = false;
+			}catch(InputMismatchException e) {
+				scanner.nextLine();
+				System.err.println(e+" Ingresa un tipo de dato entero!!");
+				datoInvalido = true;
+			}
+		}while(datoInvalido || menuPrincipal != (listaMenuPrincipal.size() - 1));
+		
+		System.out.println("Hasta luego");
+		
+	}
+	
+	private static void muestraMenu(String nombreMenu, List<String> listaMenu) {
+		System.out.println("----- "+nombreMenu+" -----");
+		int i=0;
+		for(String elemento: listaMenu) {
+			System.out.println(" "+i+".- "+elemento);
+			i++;
+		}
+	}
+	
+	private static void bloqueSwitchMenuPrincipal(int opcion) {
+		switch(opcion) {
+		case 0:
+			System.out.println(opcion+".- Agregando un nuevo Opening");
+			leeElementoOpening("Ingresa el nombre del opening", ELEMENTO_NOMBRE);
+			leeElementoOpening("Ingresa el anime del opening", ELEMENTO_ANIME);
+			leeElementoOpening("Ingresa el autor del opening", ELEMENTO_AUTOR);
+			leeElementoOpening("Ingresa el numero del opening", ELEMENTO_NUMERO_OPENING);
+			leeElementoOpening("Ingresa los minutos de duracion del opening", ELEMENTO_MINUTOS_DURACION);
+			leeElementoOpening("Ingresa los minutos de duracion opening", ELEMENTO_SEGUNDOS_DURACION);
+			Opening nuevoOp 
+				= new Opening(nombre, anime, autor, numeroOpening, minutosDuracion, segundosDuracion);
+			listaOpenings.add(nuevoOp);
+			System.out.println("Se agrego el opening correctamente a la lista");
+			break;
+		case 1:
+			System.out.println(opcion+".- Mostrando lista de Openings");
+			System.out.println(listaOpenings);
+			break;
+		case 2:
+			System.out.println(opcion+".- Editando un Opening");
+			Opening openingAEditar = buscaOpeningPorNombre();
+			if(openingAEditar == null) {
+				System.out.println("El opening no se encuentra en la lista almacenada");
+			} else {
+				boolean datoInvalido;
+				do {
+					muestraMenu("MENU DE EDICION", listaMenuEditar);
+					System.out.print("*** Elige una opcion dentro del menu: ");
+					try {
+						opcionMenuEditar = scanner.nextInt();
+						scanner.nextLine();
+						bloqueSwitchMenuEditar(opcionMenuEditar, openingAEditar);
+						datoInvalido = false;
+					}catch(InputMismatchException e) {
+						scanner.nextLine();
+						System.err.println(e+" Ingresa un tipo de dato entero!!");
+						datoInvalido = true;
+					}
+					//bloqueSwitchMenuPrincipal(menuPrincipal);
+				}while(datoInvalido || opcionMenuEditar != (listaMenuEditar.size() - 1));
+			}
+			break;
+		case 3:
+			System.out.println(opcion+".- Buscando un Opening");
+			Opening openingEncontrado = buscaOpeningPorNombre();
+			System.out.println(openingEncontrado != null ? 
+					"Los datos del opening buscado son: "+openingEncontrado : 
+						"El opening no se encuentra en la lista almacenada");
+			break;
+		case 4:
+			System.out.println(opcion+".- Eliminando un Opening");
+			Opening openingAEliminar = buscaOpeningPorNombre();
+			if(openingAEliminar == null) {
+				System.out.println("El opening no se encuentra en la lista almacenada");
+			}else {
+				;
+			}
+			break;
+		case 5:
+//			System.out.println(menu+".- Eliminando una Computadora");
+//			System.out.print("Ingresa el indice de la computadora a eliminar: ");
+//			scanner = new Scanner(System.in);
+//			indice = scanner.nextInt();
+//			listaComputadora.remove(indice);
+//			System.out.println("Se ha eliminado el elemento en la lista!");
+			break;
+		case 6:
+//			System.out.println(menu+".- Contando los elementos de la lista");
+//			System.out.println("Existen "+listaComputadora.size()+" elementos de la lista");
+			break;
+		case 7:
+			System.out.println("Saliendo del programa...");
+			break;
+		default:
+			System.out.println("Opción invalida");
+			break;
+		}
+	}
+	
+	//Devuelve el indice de la lista si el nombre es compatible
+	private static int buscaOpeningPorNombre() {
+		//Se lee el nombre a buscar y se guarda en la variable global nombre
+		leeElementoOpening("Ingresa el nombre del opening a buscar", ELEMENTO_NOMBRE);
+		int i=0;
+		for(Opening openingARevisar: listaOpenings) {
+			if(openingARevisar.getNombre().equals(nombre)) {
+				System.out.println("El opening: "+nombre+" fue encontrado!");
+				return i;
+			}
+			i++;
+		}
+		return -1;
+	}
+	
+	//Bloque de codigo que repite la lectura de un elemento del opening hasta que se ingresen correctamente
+	//los datos
+	private static void leeElementoOpening(String mensajeEntrada, int elemento) {
+		boolean lecturaCorrecta;
+		do {
+			System.out.print(mensajeEntrada+": ");
+			lecturaCorrecta = bloqueSwitchLecturaAtributos(elemento);
+		}while(!lecturaCorrecta);
+	}
+	
+	//Lee del teclado y asigna directamente a la variable global correspondiente al opening
+	private static boolean bloqueSwitchLecturaAtributos(int opcion) {
+		switch(opcion) {
+		case ELEMENTO_NOMBRE:
+			nombre = scanner.nextLine();
+			break;
+		case ELEMENTO_ANIME:
+			anime = scanner.nextLine();
+			break;
+		case ELEMENTO_AUTOR:
+			autor = scanner.nextLine();
+			break;
+		case ELEMENTO_NUMERO_OPENING:
+			try {
+				numeroOpening = scanner.nextInt();
+				scanner.nextLine();
+			}catch(InputMismatchException e) {
+				System.err.println(e+" Ingresa un tipo de dato entero!!");
+				scanner.nextLine();
+				return false;
+			}
+			break;
+		case ELEMENTO_MINUTOS_DURACION:
+			try {
+				minutosDuracion = scanner.nextInt();
+				scanner.nextLine();
+			}catch(InputMismatchException e) {
+				System.err.println(e+": Ingresa un tipo de dato entero!!");
+				scanner.nextLine();
+				return false;
+			}
+			break;
+		case ELEMENTO_SEGUNDOS_DURACION:
+			try {
+				segundosDuracion = scanner.nextInt();
+				scanner.nextLine();
+			}catch(InputMismatchException e) {
+				System.err.println(e+": Ingresa un tipo de dato entero!!");
+				scanner.nextLine();
+				return false;
+			}
+			break;
+		}
+		return true;
+	}
+	
+	private static void bloqueSwitchMenuEditar(int opcion, Opening openingAEditar) {
+		switch(opcion) {
+		case 0:
+			System.out.println(opcion+".- Edicion de nombre de opening");
+			leeElementoOpening("Ingresa el nuevo nombre para el opening", ELEMENTO_NOMBRE);
+			openingAEditar.setNombre(nombre);
+			break;
+		case 1:
+			System.out.println(opcion+".- Edicion de anime de opening");
+			leeElementoOpening("Ingresa el nuevo anime para el opening", ELEMENTO_ANIME);
+			openingAEditar.setAnime(anime);
+			break;
+		case 2:
+			System.out.println(opcion+".- Edicion de autor de opening");
+			leeElementoOpening("Ingresa el nuevo autor para el opening", ELEMENTO_AUTOR);
+			openingAEditar.setAutor(autor);
+			break;
+		case 3:
+			System.out.println(opcion+".- Edicion de numero de opening");
+			leeElementoOpening("Ingresa el nuevo numero para el opening", ELEMENTO_NUMERO_OPENING);
+			openingAEditar.setNumeroOpening(numeroOpening);
+			break;
+		case 4:
+			System.out.println(opcion+".- Edicion de minutos de duracion");
+			leeElementoOpening("Ingresa los nuevos minutos de duracion del opening", 
+					ELEMENTO_MINUTOS_DURACION);
+			openingAEditar.setMinutosDuracion(minutosDuracion);
+			break;
+		case 5:
+			System.out.println(opcion+".- Edicion de segundos de duracion");
+			leeElementoOpening("Ingresa los nuevos segundos de duracion del opening", 
+					ELEMENTO_SEGUNDOS_DURACION);
+			openingAEditar.setSegundosDuracion(segundosDuracion);
+			break;
+		case 6:
+			System.out.println("Volviendo al menu principal...");
+			break;
+		default:
+			System.out.println("Opción invalida");
+			break;
+		}
+	}
+}

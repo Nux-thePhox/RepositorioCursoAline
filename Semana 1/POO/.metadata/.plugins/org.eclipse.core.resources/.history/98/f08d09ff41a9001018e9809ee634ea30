@@ -1,0 +1,11 @@
+package com.mx.HashMap.opening;
+
+
+public class IMetodosCrudOpening {
+	public void guardar(Opening opening);
+	public void mostrar();
+	public void editar(Opening opening);
+	public void eliminar(Opening opening);
+	
+	public Opening buscar(Opening opening);
+}

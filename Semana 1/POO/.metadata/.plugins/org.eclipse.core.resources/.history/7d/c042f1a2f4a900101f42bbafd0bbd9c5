@@ -1,0 +1,8 @@
+package com.mx.herencia.practica;
+
+public class CuentaAhorro {
+	
+	public void calcularInteres() {
+		
+	}
+}

@@ -1,0 +1,16 @@
+package com.mx.herencia.practica;
+
+public class Cuenta {
+	private String titular;
+	private double cantidad;
+	
+	public Cuenta() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Cuenta(String titular, double cantidad) {
+		this.titular = titular;
+		this.cantidad = cantidad;
+	}
+	
+}

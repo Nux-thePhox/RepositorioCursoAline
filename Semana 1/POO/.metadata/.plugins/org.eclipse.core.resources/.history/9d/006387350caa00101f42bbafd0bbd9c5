@@ -1,0 +1,34 @@
+package com.mx.abstracta.practicados.entidades;
+
+import com.mx.abstracta.practicados.entidadabs.Vehiculo;
+
+public class Auto extends Vehiculo{
+	
+	private String tipoCombustible;
+	
+	public Auto(String marca, String modelo, int anio, double velocidadActual, String tipoCombustible) {
+		super(marca, modelo, anio, velocidadActual);
+		this.tipoCombustible = tipoCombustible;
+	}
+
+
+	@Override
+	public double calcularConsumo(double km) {
+		// TODO Auto-generated method stub
+		final String GASOLINA = "gasolina";
+		final String HIBRIDO = "hibrido";
+		final String ELECTRICO = "electrico";
+		
+		double consumo;
+		
+		switch(this.tipoCombustible) {
+		case GASOLINA:
+			consumo = km / 12
+			break;
+		}
+		return 0;
+	}
+	
+	
+	
+}

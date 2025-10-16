@@ -1,0 +1,12 @@
+INDEX VERSION 1.134+C:\Users\Uriel\Desktop\Capacitacion Enucom\Tercer Intento\Semana 1\POO\.metadata\.plugins\org.eclipse.jdt.core
+3422053143.index
+1695433953.index
+2356011476.index
+302609527.index
+2332042701.index
+1391538861.index
+4122040688.index
+4228322651.index
+1865797976.index
+358920302.index
+1650688248.index

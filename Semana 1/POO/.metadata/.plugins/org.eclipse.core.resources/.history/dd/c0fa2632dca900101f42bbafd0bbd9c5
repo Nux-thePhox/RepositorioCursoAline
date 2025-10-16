@@ -1,0 +1,37 @@
+package com.mx.implementacion;
+
+import com.mx.principal.MetodosList;
+
+public class ImpListGenerica implements MetodosList{
+
+	@Override
+	public void guardar(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(int indiceLista) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(int indiceLista) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object buscar(int indiceLista) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

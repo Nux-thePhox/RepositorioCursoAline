@@ -1,0 +1,11 @@
+package com.mx.abstracta.practicados;
+
+import com.mx.abstracta.practicados.entidades.Auto;
+import com.mx.abstracta.practicados.entidades.Motocicleta;
+
+public class PrincipalPracticaDosAbstracta {
+	
+	Auto delorian = new Auto("delorian", "McFly", 1985, 80, "gasolina");
+	Motocicleta moto = new Motocicleta("5ds", "YuGi", 2008, 400, 200);
+	
+}

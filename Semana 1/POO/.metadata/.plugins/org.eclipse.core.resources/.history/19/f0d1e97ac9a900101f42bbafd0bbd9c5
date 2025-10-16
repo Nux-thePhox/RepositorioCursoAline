@@ -1,0 +1,37 @@
+package com.mx.traductor;
+
+public class TraductorPalabra {
+	
+	private String palabraOriginal; //Key
+	private String palabraTraducida;
+	
+	public TraductorPalabra(String palabraOriginal) {
+		this.palabraOriginal = palabraOriginal;
+	}
+
+	public TraductorPalabra(String palabraOriginal, String palabraTraducida) {
+		this.palabraOriginal = palabraOriginal;
+		this.palabraTraducida = palabraTraducida;
+	}
+
+	public String getPalabraTraducida() {
+		return palabraTraducida;
+	}
+
+	public void setPalabraTraducida(String palabraTraducida) {
+		this.palabraTraducida = palabraTraducida;
+	}
+
+	public String getPalabraOriginal() {
+		return palabraOriginal;
+	}
+
+	@Override
+	public String toString() {
+		return "\n TraductorPalabra [palabraOriginal=" + palabraOriginal + ", palabraTraducida=" + 
+	palabraTraducida + "]";
+	}
+	
+	
+
+}

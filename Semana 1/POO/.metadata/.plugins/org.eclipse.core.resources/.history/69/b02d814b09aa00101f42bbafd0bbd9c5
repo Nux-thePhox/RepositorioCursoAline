@@ -1,0 +1,8 @@
+package com.mx.abstracta.practicados.entidadabs;
+
+public abstract class Vehiculo {
+	private String marca;
+	private String modelo;
+	private int anio;
+	private double velocidadActual;
+}

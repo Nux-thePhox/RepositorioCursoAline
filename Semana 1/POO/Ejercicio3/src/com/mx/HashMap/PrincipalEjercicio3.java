@@ -1,0 +1,37 @@
+package com.mx.HashMap;
+
+public class PrincipalEjercicio3 {
+
+	public static void main(String[] args) {
+		Mueble m4 = new Mueble("Sofa", "gris", "microfibra", 12000.50, 1, "Sala");
+		Mueble m5 = new Mueble("Escritorio", "pino", "madera", 3500.00, 1, "Oficina");
+		Mueble m6 = new Mueble("Cama", "blanca", "melamina", 8000.00, 1, "Dormitorio");
+		
+		Mueble auxMueble = null;
+		MuebleImpl muebleImpl = new MuebleImpl();
+		
+		muebleImpl.guardar(m4);
+		muebleImpl.guardar(m5);
+		muebleImpl.guardar(m6);
+		
+		//mostrar
+		muebleImpl.mostrar();
+		
+		//buscar
+		auxMueble = new Mueble("Sofa");
+		auxMueble = muebleImpl.buscar(auxMueble);
+		System.out.println(auxMueble);
+		
+		//Editar 
+		auxMueble = new Mueble("Escritorio");
+		auxMueble = muebleImpl.buscar(auxMueble);
+		auxMueble.setPrecio(4200.21);
+		System.out.println(auxMueble);
+		
+		//Eliminar
+		auxMueble = new Mueble("Cama");
+		auxMueble = muebleImpl.buscar(auxMueble);
+		muebleImpl.eliminar(auxMueble);
+		muebleImpl.mostrar();
+	}
+}

@@ -1,0 +1,10 @@
+package com.mx.HashMap;
+
+public interface IMetodosCrudMueble {
+	public void guardar(Mueble mueble);
+	public void read();
+	public void update(int indice, Mueble mueble);
+	public void delete(int indice);
+	
+	public Mueble buscar(Mueble mueble);
+}

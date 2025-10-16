@@ -1,0 +1,15 @@
+package com.mx.ejerciciosiete.practica.entidades;
+
+public class Persona {
+
+	private String nombre;
+	private short edad;
+	private String dni;
+	private char sexo;
+	private float peso;
+	private float altura;
+	
+	public Persona(String dni) {
+		this.dni = dni;
+	}
+}

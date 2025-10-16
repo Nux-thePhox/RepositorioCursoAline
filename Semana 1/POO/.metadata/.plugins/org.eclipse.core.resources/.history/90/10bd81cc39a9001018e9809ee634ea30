@@ -1,0 +1,16 @@
+package com.mx.HashMap;
+
+public class Mueble {
+	private String nombtr; //clave
+	private String color;
+	private String material;
+	private double precio;
+	private int noPiezas;
+	private String ubicacion;
+	
+	public Mueble() {
+		
+	}
+	
+		
+}

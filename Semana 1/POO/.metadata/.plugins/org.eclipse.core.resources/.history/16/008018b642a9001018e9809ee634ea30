@@ -1,0 +1,41 @@
+package com.mx.HashMap.opening;
+
+import java.util.HashMap;
+
+import com.mx.HashMap.Mueble;
+
+public class OpeningImpl implements IMetodosCrudOpening{
+
+	private HashMap<String, Mueble> hash = new HashMap<String, Mueble>();
+
+	@Override
+	public void guardar(Opening opening) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(Opening opening) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(Opening opening) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Opening buscar(Opening opening) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

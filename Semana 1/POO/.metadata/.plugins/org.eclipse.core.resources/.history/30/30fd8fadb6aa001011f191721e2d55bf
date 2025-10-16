@@ -1,0 +1,52 @@
+package com.mx.ejerciciosiete.practica;
+
+import java.util.Scanner;
+
+import com.mx.ejerciciosiete.practica.entidades.Persona;
+
+public class PrincipalPracticaEjercicio7 {
+	
+	private static Scanner leer = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		String nombre;
+		short edad;
+		char sexo;
+		float peso;
+		float altura;
+		
+		Persona persona = new Persona();
+		
+		System.out.println("==== PERSONA 1 ====");
+		System.out.print("Ingresa el nombre: ");
+		nombre = leer.nextLine();
+		edad = ingresaShort("Ingresa la edad");
+		sexo = ingresaUnChar("Ingresa el sexo");
+		
+		
+		
+	}
+	
+	private static short ingresaShort(String mensaje) {
+		short unShort;
+		System.out.print(mensaje+": ");
+		unShort = leer.nextShort();
+		leer.nextLine();
+		return unShort;
+	}
+	
+	private static float ingresaUnFloat(String mensaje) {
+		float unFloat;
+		System.out.print(mensaje+": ");
+		unFloat = leer.nextFloat();
+		leer.nextLine();
+		return unFloat;
+	}
+	
+	private static char ingresaUnChar(String mensaje) {
+		char unChart;
+		System.out.print(mensaje+": ");
+		unChart = leer.nextLine().charAt(0);
+		return unChart;
+	}
+}

@@ -1,0 +1,20 @@
+package com.mx.ejerciciosiete.practica;
+
+import com.mx.ejerciciosiete.practica.entidades.Persona;
+
+public class PrincipalPracticaEjercicio7 {
+	public static void main(String[] args) {
+		Persona persona = new Persona();
+		
+		String nombre;
+		short edad;
+		char sexo;
+		float peso;
+		float altura;
+	}
+	
+	private static short ingresaShort(String mensaje) {
+		short unShort;
+		System.out.print(mensaje+": ");
+	}
+}

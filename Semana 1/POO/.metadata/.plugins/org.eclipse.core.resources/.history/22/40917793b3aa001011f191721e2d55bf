@@ -1,0 +1,15 @@
+package com.mx.ejerciciosiete.practica;
+
+import com.mx.ejerciciosiete.practica.entidades.Persona;
+
+public class PrincipalPracticaEjercicio7 {
+	public static void main(String[] args) {
+		Persona persona = new Persona();
+		
+		private String nombre;
+		private short edad;
+		private char sexo='H';
+		private float peso;
+		private float altura;
+	}
+}

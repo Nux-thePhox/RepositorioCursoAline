@@ -1,0 +1,13 @@
+package com.mx.entidades;
+
+public class Celular {
+	
+	private long imei;
+	private String marca;
+	private String modelo;
+	private String color;
+	private double precio;
+	private int ram;
+	private String procesador;
+
+}

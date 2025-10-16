@@ -1,0 +1,9 @@
+package com.mx.ejerciciosiete.practica;
+
+import com.mx.ejerciciosiete.practica.entidades.Persona;
+
+public class PrincipalPracticaEjercicio7 {
+	public static void main(String[] args) {
+		Persona persona = new Persona();
+	}
+}

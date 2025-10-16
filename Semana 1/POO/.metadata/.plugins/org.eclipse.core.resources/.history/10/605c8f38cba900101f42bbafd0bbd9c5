@@ -1,0 +1,27 @@
+package com.mx.traductor;
+
+import java.util.HashMap;
+
+public class TraductorPalabrasImpl implements TraductorPalabraMetodos{
+	
+	private HashMap<String, String> diccionario = new HashMap<String, String>();
+
+	@Override
+	public void agregar(TraductorPalabra nuevaPalabra) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public TraductorPalabra buscarPorPalabraClave(String palabraClave) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashMap<String, String> obtenTodosLosRegistros() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

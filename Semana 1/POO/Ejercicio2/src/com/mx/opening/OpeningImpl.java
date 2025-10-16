@@ -1,0 +1,53 @@
+package com.mx.opening;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class OpeningImpl implements IMetodosCrudOpening{
+
+	private List<Opening> listaOpening = new ArrayList<Opening>();
+	
+	@Override
+	public void create(Opening opening) {
+		// TODO Auto-generated method stub
+		listaOpening.add(opening);
+	}
+
+	@Override
+	public void read() {
+		// TODO Auto-generated method stub
+		System.out.println(listaOpening);
+	}
+
+	@Override
+	public void update(int indice, Opening opening) {
+		// TODO Auto-generated method stub
+		listaOpening.set(indice, opening);
+	}
+
+	@Override
+	public void delete(int indice) {
+		// TODO Auto-generated method stub
+		listaOpening.remove(indice);
+	}
+
+	@Override
+	public Opening buscar(int indice) {
+		// TODO Auto-generated method stub
+		try {
+			return listaOpening.get(indice);
+		}catch(IndexOutOfBoundsException e) {
+			return null;
+		}
+		
+	}
+	
+	public void contarElementos() {
+		System.out.println("Existen "+listaOpening.size()+" elementos registrados");
+	}
+	
+	public int getTotalElementos() {
+		return listaOpening.size();
+	}
+
+}

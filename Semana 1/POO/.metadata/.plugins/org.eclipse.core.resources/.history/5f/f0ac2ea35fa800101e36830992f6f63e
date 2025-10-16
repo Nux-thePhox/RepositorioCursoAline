@@ -1,0 +1,37 @@
+package com.mx.computadora;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Principal {
+	
+	public static void main(String[] args) {
+		
+		Computadora computadora = new Computadora("Dell", "inspiron", 12000.50, 8, "256GB");
+		Computadora warMachine = new Computadora("Azuz", "Lentium", 24000.00, 16, "1TB");
+		Computadora equipoDos = new Computadora ("HP","Inspirion",15000.01,9,"480gb");
+		Computadora compu = new Computadora("Dell","Alienware X17",35000,64,"4 TB");
+		Computadora equipo1 = new Computadora("DEll","inspiron",12000.50,8,"256gb");
+		Computadora com2 = new Computadora("HP", "Pavilion", 13500.99, 16, "512GB");
+		Computadora equipoUno = new Computadora("Lenovo", "X1 carbon", 5700.00, 8, "200gb SSD");
+		
+		List<Computadora> listaPC =  new ArrayList<>();
+		
+		listaPC.add(computadora);
+		listaPC.add(warMachine);
+		listaPC.add(equipoDos);
+		listaPC.add(compu);
+		listaPC.add(equipo1);
+		listaPC.add(com2);
+		listaPC.add(equipoUno);
+		
+		//System.out.println(listaPC);
+
+		
+		Computadora auxCompu;
+		
+		auxCompu = listaPC.get(5);
+		
+		System.out.println("aux: "+auxCompu+"\n 5: "+com2);
+	}
+}

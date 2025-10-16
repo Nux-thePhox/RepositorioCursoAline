@@ -1,0 +1,5 @@
+package com.mx.abstracta.practicados.entidadabs;
+
+public abstract class Vehiculo {
+
+}

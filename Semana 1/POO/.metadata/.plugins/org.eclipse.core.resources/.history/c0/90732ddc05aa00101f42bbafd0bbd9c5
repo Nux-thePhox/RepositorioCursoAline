@@ -1,0 +1,7 @@
+package com.mx.abstracta.practica;
+
+public class PrincipalPracticaAbstracta {
+	public static void main(String[] args) {
+		
+	}
+}

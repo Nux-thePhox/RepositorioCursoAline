@@ -1,0 +1,12 @@
+package com.mx.traductor;
+
+public class TraductorPalabra {
+	
+	private String palabraOriginal; //Key
+	private String palabraTraducida;
+	
+	public TraductorPalabra(String palabraOriginal) {
+		this.palabraOriginal = palabraOriginal;
+	}
+
+}

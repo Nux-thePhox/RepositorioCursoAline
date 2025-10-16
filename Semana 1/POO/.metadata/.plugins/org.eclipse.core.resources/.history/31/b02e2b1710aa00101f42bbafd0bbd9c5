@@ -1,0 +1,19 @@
+package com.mx.abstracta.practicados;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mx.abstracta.practicados.entidadabs.Vehiculo;
+import com.mx.abstracta.practicados.entidades.Auto;
+import com.mx.abstracta.practicados.entidades.Camion;
+import com.mx.abstracta.practicados.entidades.Motocicleta;
+
+public class PrincipalPracticaDosAbstracta {
+	
+	Auto delorian = new Auto("delorian", "McFly", 1985, 80, "gasolina");
+	Motocicleta moto = new Motocicleta("5ds", "YuGi", 2008, 400, 200);
+	Camion camion = new Camion("Optimus", "Autobot", 2006, 90, 15);
+	
+	List<Vehiculo> lista = new ArrayList<Vehiculo>();
+	
+}

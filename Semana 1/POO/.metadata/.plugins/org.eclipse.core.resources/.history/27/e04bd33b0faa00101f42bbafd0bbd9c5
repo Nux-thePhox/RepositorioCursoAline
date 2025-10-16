@@ -1,0 +1,38 @@
+package com.mx.abstracta.practicados.entidades;
+
+import com.mx.abstracta.practicados.entidadabs.Vehiculo;
+
+public class Motocicleta extends Vehiculo{
+	
+	private int cilindraje;
+
+	public Motocicleta(String marca, String modelo, int anio, double velocidadActual, int cilindraje) {
+		super(marca, modelo, anio, velocidadActual);
+		this.cilindraje = cilindraje;
+	}
+
+	public int getCilindraje() {
+		return cilindraje;
+	}
+
+	public void setCilindraje(int cilindraje) {
+		this.cilindraje = cilindraje;
+	}
+
+	@Override
+	public double calcularConsumo(double km) {
+		double consumo;
+		// TODO Auto-generated method stub
+		if(cilindraje > 250) {
+			consumo = km/25;
+			return("Se consumieron "+consumo+" litros en estos "+km+"km");
+		}
+		return km/40;
+	}
+
+	@Override
+	public String toString() {
+		return "Motocicleta [cilindraje=" + cilindraje + "]";
+	}
+	
+}

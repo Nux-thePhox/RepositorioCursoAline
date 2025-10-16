@@ -1,0 +1,39 @@
+package com.mx.HashMap.opening;
+
+public class MainOpeningEjer3 {
+	public static void main(String[] args) {
+		Opening openingBoticaria = new Opening("Ambivalent", "Los diarios de la Boticaria", "Uru", 2, 4, 2);
+		Opening openingKimetsu = new Opening("Zankyosanka", "Kimetsu no Yaiba", "Aimer", 3, 3, 2);
+		Opening openingDanDaDan = new Opening("On The Way", "DanDaDan", "AiNA THE END", 2, 3, 38);
+		Opening openingShumatsuValkyre = new Opening("RUDE LOSE DANCE", "Shumatsu No Valkyre", "Minami", 2, 
+				4, 45);
+		
+		Opening auxMueble = null;
+		OpeningImpl openingImpl = new OpeningImpl();
+		
+		openingImpl.guardar(openingBoticaria);
+		openingImpl.guardar(openingKimetsu);
+		openingImpl.guardar(openingDanDaDan);
+		openingImpl.guardar(openingShumatsuValkyre);
+		
+		//mostrar
+		openingImpl.mostrar();
+		
+		//buscar
+		auxMueble = new Opening("Zankyosanka");
+		auxMueble = openingImpl.buscar(auxMueble);
+		System.out.println(auxMueble);
+		
+		//Editar 
+		auxMueble = new Opening("Ambivalent");
+		auxMueble = openingImpl.buscar(auxMueble);
+		auxMueble.setAnime("Kusuriya no Hitorigoto");
+		System.out.println(auxMueble);
+		
+		//Eliminar
+		auxMueble = new Opening("Cama");
+		auxMueble = openingImpl.buscar(auxMueble);
+		openingImpl.eliminar(auxMueble);
+		openingImpl.mostrar();
+	}
+}

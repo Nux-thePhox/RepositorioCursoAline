@@ -1,0 +1,47 @@
+package com.mx.opening;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Principal {
+	private static List<Opening> lista = new ArrayList<Opening>();
+	
+	public static void main(String[] args) {
+		Opening openingBoticaria = new Opening("Ambivalent ", "Los diarios de la Boticaria", "Uru", 2, 4, 2);
+		Opening openingKimetsu = new Opening("Zankyosanka", "Kimetsu no Yaiba", "Aimer", 3, 3, 2);
+		Opening openingDanDaDan = new Opening("On The Way", "DanDaDan", "AiNA THE END", 2, 3, 38);
+		Opening openingShumatsuValkyre = new Opening("RUDE LOSE DANCE", "Shumatsu No Valkyre", "Minami", 2, 
+				4, 45);
+		
+		
+		lista.add(openingBoticaria);
+		lista.add(openingKimetsu);
+		lista.add(openingDanDaDan);
+		lista.add(openingShumatsuValkyre);
+		
+		imprimeLista(lista);
+		
+		int openingABuscar = 0;
+		System.out.println("Buscando el opening: "+openingABuscar);
+		Opening auxOpening ;
+		auxOpening = lista.get(openingABuscar);
+		System.out.println("Opening encontrado: "+auxOpening);
+		
+		auxOpening.setAnime("Kusuriya no horigoto");
+		System.out.println("Lista editada: \n");
+		imprimeLista(lista);
+		
+		openingABuscar = 3;
+		lista.remove(openingABuscar);
+		System.out.println("Se elimino el elemento: "+openingABuscar);
+		System.out.println("Lista editada: \n"+lista);
+
+		System.out.println("Vaciando lista");
+		lista.clear();
+		imprimeLista(lista);
+	}
+	
+	private static void imprimeLista(List<Opening> lista) {
+		System.out.println(lista.isEmpty() ? "La lista esta vacia" : "La lista es: \n"+lista);
+	}
+}

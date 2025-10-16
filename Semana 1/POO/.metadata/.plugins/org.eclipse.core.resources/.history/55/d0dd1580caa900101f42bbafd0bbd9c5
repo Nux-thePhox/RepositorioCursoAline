@@ -1,0 +1,76 @@
+package com.mx.traductor;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ScannerOpeningAttr {
+	
+	private Scanner lectura = new Scanner(System.in);
+	private Opening opening;
+	
+	private final String NO_ES_ENTERO = "Ingresa un valor entero";
+	
+	public ScannerOpeningAttr(Opening opening) {
+		this.opening = opening;
+	}
+
+	public void leeNombre() {
+		String nombre;
+		nombre = lectura.nextLine();
+		opening.setNombre(nombre);
+	}
+	
+	public void leeAnime() {
+		String anime;
+		anime = lectura.nextLine();
+		opening.setAnime(anime);
+	}
+	
+	public void leeAutor() {
+		String autor;
+		autor = lectura.nextLine();
+		opening.setAutor(autor);
+	}
+	
+	public boolean leeNumeroOpening() {
+		int numeroOpening;
+		try {
+			numeroOpening = lectura.nextInt();
+			lectura.nextLine();
+			opening.setNumeroOpening(numeroOpening);
+			return true;
+		}catch(InputMismatchException e){
+			System.err.println(e+" "+NO_ES_ENTERO);
+			lectura.nextLine();
+			return false;
+		}
+	}
+	
+	public boolean leeMinutosDuracion() {
+		int minutosDuracion;
+		try {
+			minutosDuracion = lectura.nextInt();
+			lectura.nextLine();
+			opening.setMinutosDuracion(minutosDuracion);
+			return true;
+		}catch(InputMismatchException e){
+			System.err.println(e+" "+NO_ES_ENTERO);
+			lectura.nextLine();
+			return false;
+		}
+	}
+	
+	public boolean leeSegundosDuracion() {
+		int segundosDuracion;
+		try {
+			segundosDuracion = lectura.nextInt();
+			lectura.nextLine();
+			opening.setSegundosDuracion(segundosDuracion);
+			return true;
+		}catch(InputMismatchException e){
+			System.err.println(e+" "+NO_ES_ENTERO);
+			lectura.nextLine();
+			return false;
+		}
+	}
+}

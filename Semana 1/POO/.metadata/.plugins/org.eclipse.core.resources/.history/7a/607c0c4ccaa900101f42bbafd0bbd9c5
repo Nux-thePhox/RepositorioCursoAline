@@ -1,0 +1,6 @@
+package com.mx.traductor;
+
+public interface TraductorPalabraImpl {
+	public void agregar(TraductorPalabra nuevaPalabra);
+	public TraductorPalabra buscarPorPalabraClave(String palabraClave);
+}

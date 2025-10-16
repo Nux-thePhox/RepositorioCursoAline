@@ -1,0 +1,13 @@
+package com.mx.opening;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MenuHelper {
+	private List<String> opcionesMenu = new ArrayList<String>();
+	
+	public MenuHelper() {
+		
+	}
+
+}

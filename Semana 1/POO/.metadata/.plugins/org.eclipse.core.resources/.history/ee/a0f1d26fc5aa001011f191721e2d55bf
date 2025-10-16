@@ -1,0 +1,8 @@
+package com.mx.ejercicio8.lambda;
+
+import java.util.List;
+
+@FunctionalInterface
+public interface IPromedio {
+	double calculaPromedio(List<Object> lista);
+}

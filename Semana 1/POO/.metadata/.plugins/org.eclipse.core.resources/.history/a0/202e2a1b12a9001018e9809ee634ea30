@@ -1,0 +1,7 @@
+package com.mx.Muebles;
+
+public class PrincipalMueble {
+	public static void main(String[] args) {
+		
+	}
+}

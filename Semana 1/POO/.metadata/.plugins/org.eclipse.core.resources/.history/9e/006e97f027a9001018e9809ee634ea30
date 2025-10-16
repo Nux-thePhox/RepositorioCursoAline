@@ -1,0 +1,154 @@
+package com.mx.Muebles;
+
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+public class PrincipalMueble2 {
+	
+	private static final Scanner datos = new Scanner(System.in);
+	
+	private static int opcionMenuPrincipal=0;
+	private static int opcionMenuEditar=0;
+	private static int indiceLista = 0;
+	
+	private static String color, material, ubicacion;
+	private static int noPiezas;
+	private static double precio;
+	
+	private static List<String> listaMenuPrincipal = List.of("CREAR", "ACTUALIZAR", "MOSTRAR",
+			"ELIMINAR", "BUSCAR", "CONTAR", "SALIR");
+		
+	private static final int ELEMENTO_COLOR = 0;
+	private static final int ELEMENTO_PRECIO = 1;
+	private static final int ELEMENTO_NO_PIEZAS = 2;
+	private static final int ELEMENTO_MATERIAL = 3;
+	private static final int ELEMENTO_UBICACION = 4;
+	
+//	Mueble mueble = new Mueble("gris", 8000.78, 5, "tela", "sala");
+//	Mueble m2 = new Mueble("Terracota", 2000, 2, "caoba", "sala");
+//	Mueble sofa = new Mueble("azul", 12000.50, 8, "cuero", "sala");
+//	Mueble m3 = new Mueble("cafe", 6999.99, 2, "madera", "comedor");
+//	Mueble miMueble = new Mueble("Verde", 5000.00, 1, "tela", "sala");
+
+	private static MueblesImpl mueblesImp = new MueblesImpl();
+	
+	public static void main(String[] args) {
+		do {
+			muestraMenu("MENU PRINCIPAL", listaMenuPrincipal);
+			try {
+				opcionMenuPrincipal = datos.nextInt();
+				datos.nextLine();
+				bloqueSwitchMenuPrincipal(opcionMenuPrincipal);
+			}catch(InputMismatchException e){
+				datos.nextLine();
+				System.err.println(e+" Ingresa un tipo de dato entero!!");
+			}
+		}while(true);
+	}
+	
+	private static void muestraMenu(String nombreMenu, List<String> listaMenu) {
+		System.out.println("----- "+nombreMenu+" -----");
+		int i=0;
+		for(String elemento: listaMenu) {
+			System.out.println(" "+i+".- "+elemento);
+			i++;
+		}
+	}
+	
+	private static void bloqueSwitchMenuPrincipal(int opcion) {
+		Mueble muebleAux = null;
+		int indiceMueble;
+		switch(opcion) {
+		case 0:
+			System.out.println(opcion+".- "+listaMenuPrincipal.get(opcion));
+			leeElementoMueble("Ingresa el color", ELEMENTO_COLOR);
+			leeElementoMueble("Ingresa el precio", ELEMENTO_PRECIO);
+			leeElementoMueble("Ingresa el numero de piezas", ELEMENTO_NO_PIEZAS);
+			leeElementoMueble("Ingresa el material", ELEMENTO_MATERIAL);
+			leeElementoMueble("Ingresa el ubicacion", ELEMENTO_UBICACION);
+			muebleAux = new Mueble(color, precio, noPiezas, material, ubicacion);
+			mueblesImp.create(muebleAux);
+			System.out.println("Mueble creado");
+			break;
+		case 1:
+			System.out.println(opcion+".- "+listaMenuPrincipal.get(opcion));
+			try {
+				System.out.print("Ingresa el indice a buscar: ");
+				indiceMueble = datos.nextInt();
+				datos.nextLine();
+				if(indiceMueble >= 0 && indiceMueble <mueblesImp.getNumElementos()) {
+					
+				}else {
+					
+				}
+			}catch(InputMismatchException e){
+				System.err.println(e+" Ingresa un tipo de dato entero!!");
+				datos.nextLine();
+			}
+			break;
+		case 2:
+			System.out.println(opcion+".- "+listaMenuPrincipal.get(opcion));
+			mueblesImp.read();
+			break;
+		case 3:
+			System.out.println(opcion+".- "+listaMenuPrincipal.get(opcion));
+			break;
+		case 4:
+			System.out.println(opcion+".- "+listaMenuPrincipal.get(opcion));
+			break;
+		case 5:
+			System.out.println(opcion+".- "+listaMenuPrincipal.get(opcion));
+			break;
+		case 6:
+			System.out.println(opcion+".- "+listaMenuPrincipal.get(opcion));
+			break;
+		default:
+			System.out.println("OPCION INVALIDA");
+			break;	
+		}
+	}
+	
+	private static void leeElementoMueble(String mensajeEntrada, int elemento) {
+		boolean lecturaCorrecta;
+		do {
+			System.out.print(mensajeEntrada+": ");
+			lecturaCorrecta = bloqueSwitchLecturaAtributos(elemento);
+		}while(!lecturaCorrecta);
+	}
+	
+	private static boolean bloqueSwitchLecturaAtributos(int opcion) {
+		switch(opcion) {
+		case ELEMENTO_COLOR:
+			color = datos.nextLine();
+			break;
+		case ELEMENTO_PRECIO:
+			try {
+				precio = datos.nextDouble();
+				datos.nextLine();
+			}catch(InputMismatchException e){
+				System.err.println(e+" Ingresa un tipo de dato entero!!");
+				datos.nextLine();
+				return false;
+			}
+			break;
+		case ELEMENTO_NO_PIEZAS:
+			try {
+				noPiezas = datos.nextInt();
+				datos.nextLine();
+			}catch(InputMismatchException e){
+				System.err.println(e+" Ingresa un tipo de dato numerico!!");
+				datos.nextLine();
+				return false;
+			}
+			break;
+		case ELEMENTO_MATERIAL:
+			material = datos.nextLine();
+			break;
+		case ELEMENTO_UBICACION:
+			ubicacion = datos.nextLine();
+			break;
+		}
+		return true;
+	}
+}
