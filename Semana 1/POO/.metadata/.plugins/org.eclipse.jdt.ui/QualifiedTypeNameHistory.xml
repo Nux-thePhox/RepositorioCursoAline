@@ -18,5 +18,7 @@
     <fullyQualifiedTypeName name="com.mx.ejercicio8.lambda.IPromedio"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.mx.examen.constantes.ValoresElectrodomestico"/>
+    <fullyQualifiedTypeName name="java.lang.Character"/>
+    <fullyQualifiedTypeName name="com.mx.examen.constantes.ListaConstantes"/>
     <fullyQualifiedTypeName name="com.mx.examen.superclases.Electrodomestico"/>
 </qualifiedTypeNameHistroy>
