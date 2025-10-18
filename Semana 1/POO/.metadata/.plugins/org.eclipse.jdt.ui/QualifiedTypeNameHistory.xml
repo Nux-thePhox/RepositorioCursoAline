@@ -20,5 +20,7 @@
     <fullyQualifiedTypeName name="com.mx.examen.constantes.ValoresElectrodomestico"/>
     <fullyQualifiedTypeName name="java.lang.Character"/>
     <fullyQualifiedTypeName name="com.mx.examen.constantes.ListaConstantes"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="com.mx.examen.superclases.Electrodomestico"/>
 </qualifiedTypeNameHistroy>

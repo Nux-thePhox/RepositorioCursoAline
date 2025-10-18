@@ -1,6 +1,7 @@
 package com.mx.examen.constantes;
 
 import java.util.List;
+import java.util.Map;
 
 public class ValoresElectrodomestico {
 	
@@ -14,9 +15,18 @@ public class ValoresElectrodomestico {
 	public static final float PRECIO_POR_DEFECTO = 100.00f;
 	public static final float PESO_POR_DEFECTO = 5.0F;
 	
+	//Unidades de medida
 	public static final String UNIDAD_PRECIO = "€";
 	public static final String UNIDAD_PESO = "kg";
 	
+	public static final Map<Character, Float> incrementoPorConsumo = Map.of(
+			listaConsumo.get(0), 100f,
+			listaConsumo.get(1), 80f,
+			listaConsumo.get(2), 60f,
+			listaConsumo.get(3), 50f,
+			listaConsumo.get(4), 30f,
+			listaConsumo.get(5), 10f
+			);
 	
 	
 }
