@@ -11,16 +11,19 @@
     <fullyQualifiedTypeName name="java.awt.List"/>
     <fullyQualifiedTypeName name="com.mx.ejercicio8.lambda.ISaludo"/>
     <fullyQualifiedTypeName name="com.mx.ejercicio8.lambda.Alumno"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.util.OptionalDouble"/>
     <fullyQualifiedTypeName name="com.mx.ejercicio8.lambda.IPromedio"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="com.mx.examen.constantes.ValoresElectrodomestico"/>
     <fullyQualifiedTypeName name="java.lang.Character"/>
     <fullyQualifiedTypeName name="com.mx.examen.constantes.ListaConstantes"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="com.mx.examen.constantes.ValoresElectrodomestico"/>
+    <fullyQualifiedTypeName name="com.mx.examen.entidades.Lavadora"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="com.mx.examen.entidades.Television"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.mx.examen.superclases.Electrodomestico"/>
 </qualifiedTypeNameHistroy>
