@@ -1,0 +1,53 @@
+<h2>Entrega de efectivo</h2>
+
+<!-- 1. Mostrar estado de carga -->
+@if(isLoading){
+<div class="alert alert-dismissible alert-warning">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <h4 class="alert-heading">Un momento</h4>
+    <p class="mb-0">Entregando efectivo...</p>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+            aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+    </div>
+</div>
+}
+
+@if(mensajeError){
+<div class="alert alert-dismissible alert-secondary">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>OOPS!! - </strong> {{ mensajeError }}
+</div>
+}@else {
+<table class="table table-hover">
+    <thead class="table-success">
+        <tr>
+            <th scope="col">Tipo Moneda</th>
+            <th scope="col">Denominacion</th>
+            <th scope="col">Cantidad Entregada</th>
+        </tr>
+    </thead>
+    <tbody class="table-light">
+        @for (efectivo of cantidadAEntregar; track efectivo.idFondosDisponibles) {
+
+        <tr class="">
+            <th scope="row">@if (efectivo.denominacionId.tipoMonedaId.idTipoMoneda === 1) {
+                    <i class="bi bi-cash-stack"></i>
+                }@else {
+                    <i class="bi bi-coin"></i>
+                }
+                {{efectivo.denominacionId.tipoMonedaId.nombre}}
+            </th>
+            <td>{{efectivo.denominacionId.valor}}</td>
+            <td>{{efectivo.cantidad}}</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div class="alert alert-dismissible alert-success">
+    <h3><i class="bi bi-cash-coin"></i></h3>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    Se entregaron <strong>$ {{efectivoEntregado}} MXN</strong> en efectivo
+</div>
+}

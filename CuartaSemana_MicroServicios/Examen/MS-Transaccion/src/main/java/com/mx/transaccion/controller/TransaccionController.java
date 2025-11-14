@@ -1,5 +1,7 @@
 package com.mx.transaccion.controller;
 
+import com.mx.transaccion.dto.PeticionTrDTO;
+import com.mx.transaccion.dto.RespuestaTrDTO;
 import com.mx.transaccion.entity.Transaccion;
 import com.mx.transaccion.service.TransaccionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +32,8 @@ public class TransaccionController {
     }
 
     @PostMapping
-    public ResponseEntity<?> guardarTransaccion(@RequestBody Transaccion trPeticion){
-        Transaccion trAprobada = service.guardarTransaccion(trPeticion);
+    public ResponseEntity<?> guardarTransaccion(@RequestBody PeticionTrDTO trPeticion){
+        RespuestaTrDTO trAprobada = service.guardarTransaccion(trPeticion);
         if(trAprobada == null){
             return ResponseEntity.status(HttpStatus.CONFLICT).body("No persistió la transaccion en la BD");
         }

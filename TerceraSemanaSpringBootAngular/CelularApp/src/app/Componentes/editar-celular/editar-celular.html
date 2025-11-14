@@ -1,0 +1,39 @@
+<p>guardar-celular works!</p>
+<div class="container">
+    <div class="card">
+        <div class="div card-header">
+            <h2>Registro de celulares</h2>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div>
+                    <label for="idCelular">ID CELULAR</label>
+                    <!-- ngModel es una directiva bidireccional, permite un enlace entre el html y la propiedad de un componente-->
+                    <input class="form-control" type="number" name="idCelular" placeholder="Ej: 1, 40"
+                        [(ngModel)]="cel.idCelular">
+                </div>
+                <div>
+                    <label for="marca">marca</label>
+                    <input class="form-control" type="text" name="marca" placeholder="Ej: Samsung" [(ngModel)]="cel.marca">
+                </div>
+                <div>
+                    <label for="modelo">Modelo</label>
+                    <input class="form-control" type="text" name="modelo" placeholder="Ej: Galaxy" [(ngModel)]="cel.modelo">
+                </div>
+                <div>
+                    <label for="ram">RAM</label>
+                    <input class="form-control" type="text" name="ram" placeholder="Ej: 8gb" [(ngModel)]="cel.ram">
+                </div>
+                <div>
+                    <label for="procesador">Procesador</label>
+                    <input class="form-control" type="text" name="procesador" placeholder="Ej: Octa Core" [(ngModel)]="cel.procesador">
+                </div>
+                <div>
+                    <label for="precio">Precio</label>
+                    <input class="form-control" type="number" name="precio" placeholder="Ej: 8522" [(ngModel)]="cel.precio">
+                </div>
+                <div><button class="btn btn-success" (click)="editarC()">Guardar</button></div>
+            </form>
+        </div>
+    </div>
+</div>

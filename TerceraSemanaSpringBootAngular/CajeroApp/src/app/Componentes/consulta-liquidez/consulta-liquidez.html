@@ -1,0 +1,39 @@
+<h2>Estado del Cajero</h2>
+
+<!-- 1. Mostrar estado de carga -->
+@if(isLoading){
+<div class="alert alert-dismissible alert-warning">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <h4 class="alert-heading">Un momento</h4>
+    <p class="mb-0">Cargando fondos disponibles...</p>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+            aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+    </div>
+</div>
+}
+
+<!-- 2. Mostrar mensaje de error si existe -->
+@if(mensajeError){
+<div class="alert alert-dismissible alert-secondary">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>OOPS!! - </strong> {{ mensajeError }}
+    <button class="btn btn-primary" (click)="obtenEfectivoDisp()">Reintentar</button>
+</div>
+}
+
+<!-- 3. Mostrar el resultado exitoso si los datos están disponibles -->
+@if(efectivoTotal !== undefined && !isLoading && !mensajeError){
+<div class="alert alert-dismissible alert-success">
+    <h3><i class="bi bi-cash-coin"></i></h3>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    Este cajero cuenta con <strong>$ {{efectivoTotal}} MXN</strong> en efectivo
+</div>
+}
+
+<!-- 4. Si no hay datos, pero tampoco error ni carga (escenario improbable pero seguro) -->
+@if(efectivoTotal === undefined && !isLoading && !mensajeError ){
+<div class="alert alert-warning">
+    El cajero se quedo sin fondos. Vuelve despues
+</div>
+}

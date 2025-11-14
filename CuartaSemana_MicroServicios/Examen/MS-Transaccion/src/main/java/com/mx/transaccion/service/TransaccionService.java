@@ -1,5 +1,7 @@
 package com.mx.transaccion.service;
 
+import com.mx.transaccion.dto.PeticionTrDTO;
+import com.mx.transaccion.dto.RespuestaTrDTO;
 import com.mx.transaccion.entity.Transaccion;
 import com.mx.transaccion.repository.TransaccionRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +18,7 @@ public class TransaccionService {
     @Autowired
     private TransaccionRepository repository;
 
-    public Transaccion guardarTransaccion(Transaccion trPeticion){
+    public RespuestaTrDTO guardarTransaccion(PeticionTrDTO trPeticion){
         Transaccion trAGuardar = new Transaccion();
         trAGuardar.setOperacion(trPeticion.getOperacion());
         trAGuardar.setImporte(trPeticion.getImporte());
@@ -26,7 +28,7 @@ public class TransaccionService {
         repository.save(trAGuardar);
 
         if(trAGuardar.getIdTransaccion() != 0){
-            Transaccion trRespuesta = new Transaccion();
+            RespuestaTrDTO trRespuesta = new RespuestaTrDTO();
             trRespuesta.setIdTransaccion(trAGuardar.getIdTransaccion());
             trRespuesta.setEstatus(trAGuardar.getEstatus());
             trRespuesta.setReferencia(trAGuardar.getReferencia());

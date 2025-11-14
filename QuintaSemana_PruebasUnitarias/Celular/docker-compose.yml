@@ -1,0 +1,20 @@
+services:
+  oracle-db:
+    image: gvenzl/oracle-xe:latest
+    container_name: oracle-db
+    ports:
+      - '1522:1521'
+    environment:
+      - ORACLE_PASSWORD=12345
+    restart: unless-stopped
+
+  spring-app:
+    image: spring-celular:1.0
+    container_name: spring-app
+    ports:
+      - '8080:8001'
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@oracle-db:1521:XE
+      - SPRING_DATASOURCE_USERNAME=system
+      - SPRING_DATASOURCE_PASSWORD=12345
+    restart: unless-stopped

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card border-info mb-3" style="max-width: 20rem;">
+        <div class="card-header">Ingresa los siguientes datos</div>
+        <div class="card-body">
+            <form>
+                <fieldset>
+                    <legend>Actualizacion de Prestamo</legend>
+                    <div>
+                        <label for="inputIdPrestamo" class="form-label mt-4"># Id</label>
+                        <input type="number" class="form-control" name="inputIdPrestamo"
+                            placeholder="Ingresa un número mayor a 0" [(ngModel)]="prestamoAEditar.idPrestamo">
+                    </div>
+                    <div>
+                        <label for="inputFechaInicio" class="form-label mt-4">Fecha De Prestamo</label>
+                        <input type="date" class="form-control" name="inputFechaInicio"
+                            placeholder="" [(ngModel)]="prestamoAEditar.fechaInicio">
+                    </div>
+                    <div>
+                        <label for="inputFechaFin" class="form-label mt-4">Fecha de Devolucion</label>
+                        <input type="date" class="form-control" name="inputFechaFin"
+                            placeholder="" [(ngModel)]="prestamoAEditar.fechaFin">
+                    </div>
+                    <div>
+                        <label for="inputIdLibro" class="form-label mt-4">#ID LIBRO</label>
+                        <input type="number" class="form-control" name="inputIdLibro"
+                            placeholder="Ingresa el numero de id del libro" [(ngModel)]="libroAux.idLibro">
+                    </div>
+                    <button type="" class="btn btn-primary" (click)="guardarCambiosPrestamo()">Guardar</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

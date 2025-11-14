@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="card border-info mb-3" style="max-width: 20rem;">
+        <div class="card-header">Registrar Libro</div>
+        <div class="card-body">
+            <form>
+                <fieldset>
+                    <legend>Ingresa los siguientes datos</legend>
+                    <div>
+                        <label for="inputIdLibro" class="form-label mt-4"># Id</label>
+                        <input type="number" class="form-control" name="inputIdLibro"
+                            placeholder="Ingresa un número mayor a 0" [(ngModel)]="libritoAGuardar.idLibro">
+                    </div>
+                    <div>
+                        <label for="inputNombreLibro" class="form-label mt-4">Nombre</label>
+                        <input type="text" class="form-control" name="inputNombreLibro"
+                            placeholder="Ingresa el nombre del Libro" [(ngModel)]="libritoAGuardar.nombre">
+                    </div>
+                    <div>
+                        <label for="inputAutorLibro" class="form-label mt-4">Autor</label>
+                        <input type="text" class="form-control" name="inputAutorLibro"
+                            placeholder="Ingresa el nombre del autor del libro" [(ngModel)]="libritoAGuardar.autor">
+                    </div>
+                    <div>
+                        <label for="inputEditorialLibro" class="form-label mt-4">Editorial</label>
+                        <input type="text" class="form-control" name="inputEditorialLibro"
+                            placeholder="Ingresa el nombre de la editorial del libro" [(ngModel)]="libritoAGuardar.editorial">
+                    </div>
+                    <div>
+                        <label for="inputIsbnLibro" class="form-label mt-4"># ISBN</label>
+                        <input type="number" class="form-control" name="inputIsbnLibro"
+                            placeholder="Ingresa el número ISBN" [(ngModel)]="libritoAGuardar.isbn">
+                    </div>
+                    <button type="" class="btn btn-primary" (click)="guardandoLibro()">Guardar</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

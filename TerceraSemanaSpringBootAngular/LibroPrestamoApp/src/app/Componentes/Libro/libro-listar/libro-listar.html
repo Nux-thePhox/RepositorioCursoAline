@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="card text-white bg-primary">
+        <div class="card-header">
+            <h2>Libros Registrados</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead class="table-info">
+                    <tr>
+                        <th scope="col"># ID LIBRO</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">AUTOR</th>
+                        <th scope="col">EDITORIAL</th>
+                        <th scope="col">ISBN</th>
+                        <th scope="col">OPERACIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (librito of libros; track librito.idLibro) {
+                    <tr class="table-dark">
+                        <th scope="row">{{librito.idLibro}}</th>
+                        <td>{{librito.nombre}}</td>
+                        <td>{{librito.autor}}</td>
+                        <td>{{librito.editorial}}</td>
+                        <td>{{librito.isbn}}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button name="editarLibro" type="button" class="btn btn-primary" (click)="botonEditar(librito.idLibro)">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                                <button name="eliminarLibro" type="button" class="btn btn-danger" (click)="botonEliminar(librito.idLibro)">
+                                    <i class="bi bi-trash2"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    }@empty {
+                    <td colspan="6" style="text-align: center;">Aun no hay registros</td>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

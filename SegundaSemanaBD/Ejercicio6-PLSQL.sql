@@ -1,0 +1,85 @@
+/*
+    LENGUAJE PL/SQL: ES UN LENGUAJE DE PROCEDIMIENTO QUE
+    FUE DISEÑADO PARA ABARCAR SENTENCIAS SQL DENTRO DE SUS SINTAXIS:
+    
+    BLOQUES ANINIMOS: SE LLAMAN ASI PORQUE NO TIENEN NOMBRE Y NO SE QUEDA 
+    GUARDADO EN LA BASE DE DATOS. SOLO SE EJECUTA AL MOMENTO
+    
+    SINTAXIS:
+        - DECLARACION (DECLARE) -> OPCIONAL, SE OCUPA PARA DECLARAR VARIABLES, 
+          CONSTANTES, CURSORES.
+        - EJECUCIONES (BEGIN) -> OBLIGATORIA, SE COLOCAN LAS INSTRUCCIONES QUE 
+          SE QUIEREN EJECUTAR.
+        - EXCEPCIONES (EXCEPTION) -> OPCIONAL, PARA MANEJAR ERRORES.
+        
+        DECLARE
+            V_NOMBRE NVARCHAR(20) := 'ALINE';
+        BEGIN
+            DBMS_OUTPUT.PUT_LINE('HOLA' || V_NOMBRE);
+        END;
+*/
+
+DECLARE
+    V_NOMBRE NVARCHAR2(20) := 'ALINE';
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('HOLA ' || V_NOMBRE);
+END;
+/ --  indicador hasta aqui se ejecuta mi bloque. 
+
+// la salida se mostrara el "Salida de DBMS", se encuentra en el menú "Ver
+// una vez que se abre la terminal, agrega la conexión
+
+-- USO DE CICLOS
+DECLARE
+    LV_VARIABLE NUMBER := 0;
+BEGIN
+    LOOP
+        DBMS_OUTPUT.PUT_LINE('VALOR DE LA VARIABLE' || LV_VARIABLE);
+        LV_VARIABLE := LV_VARIABLE + 1;
+        --SALIR CUANDO LV_VARIABLE SEA 10
+        IF LV_VARIABLE = 10
+            THEN EXIT;
+        END IF;
+    END LOOP;
+END;
+/
+
+-- FOR Y LOOPS
+DECLARE
+BEGIN
+    --FOR
+    FOR i IN 1..10 --ejecutara de 1 hasta 10
+        LOOP 
+            DBMS_OUTPUT.put_line('VALOR DE LA VARIABLE FOR '|| i);
+            --SAL CUANDO EL VALOR LLEGUE A 6
+            EXIT WHEN i = 6;
+        END LOOP;
+END;
+/
+
+--> WHILE Y LOOP
+DECLARE 
+    LV_ITERADOR NUMBER := 1;
+BEGIN
+    WHILE LV_ITERADOR <= 6
+    LOOP
+        DBMS_OUTPUT.PUT_LINE('VALOR DEL ITERADOR CON WHILE '|| LV_ITERADOR);
+        LV_ITERADOR := LV_ITERADOR + 1;
+    END LOOP;
+END;
+/
+
+--uso de variables booleanas y loop
+DECLARE
+    LV_VALIDADOR BOOLEAN := FALSE;
+BEGIN
+    FOR i IN 1..20
+        LOOP
+            DBMS_OUTPUT.PUT_LINE('VALOR DEL LA VARIABLE: '|| i);
+            IF i = 9 THEN LV_VALIDADOR := TRUE;
+            END IF;
+            --SALIR CUANDO LA CONDICION SEA TRUE
+            EXIT WHEN LV_VALIDADOR;
+        END LOOP;
+END;
+/

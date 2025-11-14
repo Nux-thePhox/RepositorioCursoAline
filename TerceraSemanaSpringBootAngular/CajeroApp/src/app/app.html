@@ -1,0 +1,36 @@
+<header>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="http://localhost:4200">Enucom Cajero</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="retirarEfectivo">Retiro
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="consultaEfectivoDisp">Consultar Efectivo Disponible
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="main">
+
+  <div class="content">
+    <div class="left-side">
+      <h1>{{ title() }}</h1>
+    </div>
+  </div>
+</main>
+
+
+<router-outlet />

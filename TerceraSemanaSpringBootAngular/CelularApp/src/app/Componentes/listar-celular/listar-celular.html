@@ -1,0 +1,34 @@
+<p>listar-celular works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">MARCA</th>
+            <th scope="col">MODELO</th>
+            <th scope="col">RAM</th>
+            <th scope="col">PROCESADOR</th>
+            <th scope="col">PRECIO</th>
+            <th scope="col">OPERACIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (celular of celulares ; track celular.idCelular){
+        <tr>
+            <td>{{celular.idCelular}}</td>
+            <td>{{celular.modelo}}</td>
+            <td>{{celular.marca}}</td>
+            <td>{{celular.ram}}</td>
+            <td>{{celular.procesador}}</td>
+            <td>{{celular.precio}}</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-warning" (click)="editarButtom(celular)">Editar</button>
+                    <button type="button" class="btn btn-danger" (click)="btnEliminar(celular)">Eliminar</button>
+                </div>
+            </td>
+        </tr>
+        }@empty {
+            <td colspan="7" style="text-align: center;"> No existen registros</td>
+        }
+    </tbody>
+</table>

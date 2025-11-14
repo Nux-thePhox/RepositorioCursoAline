@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="card text-white bg-primary">
+        <div class="card-header">
+            <h2>Prestamos Registrados</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead class="table-info">
+                    <tr>
+                        <th scope="col"># ID PRESTAMO</th>
+                        <th scope="col">FECHA DE PRESTAMO</th>
+                        <th scope="col">FEECHA PARA DEVOLVER</th>
+                        <th scope="col">LIBRO #ID</th>
+                        <th scope="col">NOMBRE LIBRO</th>
+                        <th scope="col">OPERACIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (prestamo of listaPrestamos; track prestamo.idPrestamo) {
+                    <tr class="table-dark">
+                        <th scope="row">{{prestamo.idPrestamo}}</th>
+                        <td>{{prestamo.fechaInicio}}</td>
+                        <td>{{prestamo.fechaFin}}</td>
+                        <td>{{prestamo.libroId?.idLibro}}</td>
+                        <td>{{prestamo.libroId?.nombre}}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button name="editarPrestamo" type="button" class="btn btn-primary" (click)="botonEditar(prestamo.idPrestamo)">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                                <button name="eliminarPrestamo" type="button" class="btn btn-danger" (click)="botonEliminar(prestamo.idPrestamo)">
+                                    <i class="bi bi-trash2"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    }@empty {
+                    <td colspan="6" style="text-align: center;">Aun no hay registros</td>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
