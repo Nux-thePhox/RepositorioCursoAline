@@ -1,5 +1,6 @@
 package com.mx.validador.handler;
 
+import com.mx.validador.exception.HashGenerationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -24,5 +25,12 @@ public class GlobalExceptionHandler {
         });
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errores);
+    }
+
+    //Este método maneja la falla del calculo sha512
+    @ExceptionHandler(HashGenerationException.class)
+    public ResponseEntity<String> handleHashGenerationException(HashGenerationException ex) {
+        // Devuelve un error 500 con el mensaje de la excepción personalizada
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
