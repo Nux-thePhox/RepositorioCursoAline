@@ -7,7 +7,8 @@ import jakarta.persistence.*;
 public class Celular {
 	
 	@Id //mapea que mi atributo es la llave primaria de mi tabla
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //Descomentar para pruebas unitarias
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idCelular;
 	@Column(name = "MARCA", columnDefinition = "NVARCHAR2(100)")
 	private String marca;
