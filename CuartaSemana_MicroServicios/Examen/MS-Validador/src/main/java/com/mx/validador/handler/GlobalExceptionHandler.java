@@ -1,6 +1,9 @@
 package com.mx.validador.handler;
 
 import com.mx.validador.exception.HashGenerationException;
+import com.mx.validador.exception.TransactionConsumoException;
+import feign.RetryableException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -32,5 +36,18 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleHashGenerationException(HashGenerationException ex) {
         // Devuelve un error 500 con el mensaje de la excepción personalizada
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    //Este método manejara la falla con las respuestas no exitosas del http
+    @ExceptionHandler(TransactionConsumoException.class)
+    public ResponseEntity<String> handleTransactionConsumoException(TransactionConsumoException ex){
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    //Meneja un fallo de conexión con el MS
+    @ExceptionHandler(RetryableException.class)
+    public ResponseEntity<String> handleRetryableException(RetryableException ex){
+        log.info(" MS-Transaccion NO CONECCTION\n\t CAUSA: {} \n\t MESSAGE: {}", ex.getCause(), ex.getMessage());
+        return new ResponseEntity<>("MS-Transaccion no está disponible", HttpStatus.SERVICE_UNAVAILABLE);
     }
 }

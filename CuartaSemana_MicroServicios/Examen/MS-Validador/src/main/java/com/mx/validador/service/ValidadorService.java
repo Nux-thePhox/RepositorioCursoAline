@@ -1,9 +1,11 @@
 package com.mx.validador.service;
 
+import com.mx.validador.client.ITransaccionFeignConfig;
 import com.mx.validador.dto.PeticionDTO;
 import com.mx.validador.dto.RespuestaDTO;
 import com.mx.validador.exception.HashGenerationException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
@@ -14,10 +16,13 @@ import java.security.NoSuchAlgorithmException;
 @Service
 public class ValidadorService {
 
+    @Autowired
+    private ITransaccionFeignConfig transaccionFC;
+
     public RespuestaDTO procesarPeticion(PeticionDTO peticion){
         if(validaSha(peticion)){
             log.info("Persistiendo peticion de transaccion");
-            return null;
+            return transaccionFC.guardarTransaccion(peticion);
         }
         log.info("El codigo sha de la peticion es incorrecto.");
         return null;
