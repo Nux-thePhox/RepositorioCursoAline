@@ -1,15 +1,77 @@
-
 <main class="main">
   <div class="content">
     <div class="left-side">
-      <h1>Bienvenido a mi Tienda</h1>
-      <img src="assets/imagenes/maido.jpg" alt="Maido">
+      <div class="container">
+        <h1>Bienvenido a mi Tienda</h1>
+        <img src="assets/imagenes/maido.jpg" alt="Maido">
+      </div>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
+      <form class="bg-body-tertiary" [formGroup]="formularioPeticion" (ngSubmit)="enviarPeticion()">
+        <fieldset>
+          <legend>Por favor dime tu nombre</legend>
+          <div class="row">
+            <input class="form-control" id="readOnlyInput" type="text" placeholder="Ingresa tu nombre"
+              formControlName="cliente">
+          </div>
+
+          <fieldset>
+            <legend class="mt-4">Elige un producto</legend>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="importe" id="optionsRadios1" formControlName="importe"
+                value="200.00" checked>
+              <label class="form-check-label" for="optionsRadios1">
+                Gorro navideño
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="importe" id="optionsRadios2" formControlName="importe"
+                value="100.00">
+              <label class="form-check-label" for="optionsRadios2">
+                Bufanda
+              </label>
+            </div>
+            <div class="form-check">
+              <!-- Atributo disabled añadido si es necesario -->
+              <input class="form-check-input" type="radio" name="importe" id="optionsRadios3" formControlName="importe"
+                value="500.00">
+              <label class="form-check-label" for="optionsRadios3">
+                Amigurumi
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-primary">Comprar</button>
+        </fieldset>
+      </form>
     </div>
   </div>
+
+  @if(isLoading){
+  <div class="alert alert-dismissible alert-warning">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <h4 class="alert-heading">Un momento</h4>
+    <p class="mb-0">Procesando peticion...</p>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+        aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+    </div>
+  </div>
+  }
+
+  @if(mensajeError){
+  <div class="alert alert-dismissible alert-secondary">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>OOPS!! - </strong> {{ mensajeError }}
+  </div>
+  }@else {
+    @if(transaccionExitosa){
+      <div class="alert alert-dismissible alert-success">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>La transaccion se llevo a cabo!</strong> {{ respuesta }}
+  </div>
+    }
+  }
 </main>
-
-
 <router-outlet />
